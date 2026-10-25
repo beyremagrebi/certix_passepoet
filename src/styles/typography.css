@@ -1,0 +1,72 @@
+:root {
+  /* Body — paragraphs and general content */
+  --font-size-body-small: 0.75rem;   /* 12px */
+  --font-size-body-medium: 0.875rem; /* 14px */
+  --font-size-body-large: 1rem;      /* 16px */
+  --font-size-body-huge: 1.125rem;   /* 18px */
+
+  /* Titles — headings and page titles */
+  --font-size-title-small: 1.25rem;  /* 20px */
+  --font-size-title-medium: 1.5rem;  /* 24px */
+  --font-size-title-large: 1.875rem; /* 30px */
+  --font-size-title-huge: 2.25rem;   /* 36px */
+
+  /* Labels — buttons, inputs, captions */
+  --font-size-label-small: 0.75rem;   /* 12px */
+  --font-size-label-medium: 0.875rem; /* 14px */
+  --font-size-label-large: 1rem;      /* 16px */
+  --font-size-label-huge: 1.125rem;   /* 18px */
+}
+
+
+/* Body */
+.body-small {
+  font-size: var(--font-size-body-small);
+}
+
+.body-medium {
+  font-size: var(--font-size-body-medium);
+}
+
+.body-large {
+  font-size: var(--font-size-body-large);
+}
+
+.body-huge {
+  font-size: var(--font-size-body-huge);
+}
+
+/* Titles */
+.title-small {
+  font-size: var(--font-size-title-small);
+}
+
+.title-medium {
+  font-size: var(--font-size-title-medium);
+}
+
+.title-large {
+  font-size: var(--font-size-title-large);
+}
+
+.title-huge {
+  font-size: var(--font-size-title-huge);
+}
+
+/* Labels */
+.label-small {
+  font-size: var(--font-size-label-small);
+}
+
+.label-medium {
+  font-size: var(--font-size-label-medium);
+}
+
+.label-large {
+  font-size: var(--font-size-label-large);
+}
+
+.label-huge {
+  font-size: var(--font-size-label-huge);
+}
+
