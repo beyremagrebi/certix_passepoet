@@ -1,0 +1,47 @@
+.w-full {
+  width: 100%;
+}
+
+.min-w-0 {
+  min-width: 0;
+}
+
+/* Responsive visibility */
+
+.hide-mobile {
+  display: initial;
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: initial;
+  }
+
+  .mobile-full-width {
+    width: 100%;
+  }
+}
+
+/* Text alignment */
+
+.text-center {
+  text-align: center;
+}
+
+/* Overflow */
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}

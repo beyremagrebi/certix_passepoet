@@ -1,0 +1,261 @@
+
+/* =================================
+   CONTAINER
+================================= */
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: var(--spacing-4);
+}
+
+.container-fluid {
+  width: 100%;
+  padding-inline: var(--spacing-4);
+}
+
+/* =================================
+   PAGE LAYOUT
+================================= */
+
+.page-layout {
+  width: 100%;
+  min-height: 100vh;
+  padding: var(--spacing-6);
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-6);
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+/* =================================
+   STACK
+   Vertical spacing between elements
+================================= */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  min-width: 0;
+}
+
+.stack-sm {
+  gap: var(--spacing-2);
+}
+
+.stack-lg {
+  gap: var(--spacing-6);
+}
+
+/* =================================
+   CLUSTER
+   Horizontal items that can wrap
+================================= */
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+/* =================================
+   GRID
+================================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-4);
+}
+
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 240px), 1fr)
+  );
+  gap: var(--spacing-4);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-4);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-4);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-4);
+}
+
+/* =================================
+   FLEX HELPERS
+================================= */
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+/* =================================
+   GAP UTILITIES
+================================= */
+
+.gap-2 {
+  gap: var(--spacing-2);
+}
+
+.gap-3 {
+  gap: var(--spacing-3);
+}
+
+.gap-4 {
+  gap: var(--spacing-4);
+}
+
+.gap-6 {
+  gap: var(--spacing-6);
+}
+
+.gap-8 {
+  gap: var(--spacing-8);
+}
+
+/* =================================
+   RESPONSIVE BREAKPOINTS
+================================= */
+
+/* Mobile: below 640px */
+@media (max-width: 639px) {
+  .page-layout {
+    padding: var(--spacing-4);
+  }
+
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page-header > * {
+    max-width: 100%;
+  }
+
+  .page-content {
+    gap: var(--spacing-4);
+  }
+
+  .container,
+  .container-fluid {
+    padding-inline: var(--spacing-4);
+  }
+}
+
+/* Small tablet: 640px and above */
+@media (min-width: 640px) {
+  .container {
+    padding-inline: var(--spacing-6);
+  }
+
+  .page-layout {
+    padding: var(--spacing-6);
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Desktop: 1024px and above */
+@media (min-width: 1024px) {
+  .container {
+    padding-inline: var(--spacing-8);
+  }
+
+  .page-layout {
+    padding: var(--spacing-8);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Large desktop: 1280px and above */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
