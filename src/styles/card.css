@@ -1,41 +1,39 @@
 .card {
-  font-family: var(--font-family-base);
-  color: var(--color-text);
   background: var(--color-surface);
+  color: var(--color-text);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-6);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg, 12px);
-  min-width: 0;
 }
 
-/* Variants */
 .card-default {
-  box-shadow: none;
+  box-shadow: var(--shadow-card);
 }
 
 .card-outlined {
-  border: 1px solid var(--color-border-strong);
-  box-shadow: none;
+  box-shadow: var(--shadow-none);
 }
 
 .card-elevated {
-  border-color: transparent;
-  box-shadow: 0 4px 16px rgb(23 33 59 / 8%);
+  box-shadow: var(--shadow-md);
 }
 
-/* Padding */
+/* .card:hover {
+   Optional: only if you want hover elevation 
+} */
+
 .card-padding-small {
-  padding: 0.75rem;
+  padding: var(--spacing-3);
 }
 
 .card-padding-medium {
-  padding: 1.25rem;
+  padding: var(--spacing-6);
 }
 
 .card-padding-large {
-  padding: 1.75rem;
+  padding: var(--spacing-8);
 }
 
-/* Width */
 .card-full-width {
   width: 100%;
 }
