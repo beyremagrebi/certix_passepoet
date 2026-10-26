@@ -71,4 +71,13 @@
   --shadow-card-hover: var(--shadow-md);
   --shadow-dropdown: var(--shadow-lg);
   --shadow-modal: var(--shadow-xl);
+
+  --color-success: #15803d;
+--color-success-subtle: #dcfce7;
+
+--color-warning: #b45309;
+--color-warning-subtle: #fef3c7;
+
+--color-info: #1d4ed8;
+--color-info-subtle: #dbeafe;
 }

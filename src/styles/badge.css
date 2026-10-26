@@ -1,0 +1,123 @@
+/* ========================================
+   MODERN BADGE
+======================================== */
+
+.ui-badge {
+  --badge-accent: var(--color-text-secondary);
+  --badge-bg: var(--color-surface-secondary);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  width: fit-content;
+  max-width: 100%;
+  padding: 5px 10px;
+
+  border: 1px solid
+    color-mix(in srgb, var(--badge-accent) 18%, transparent);
+  border-radius: var(--radius-full, 999px);
+
+  background: var(--badge-bg);
+  color: var(--badge-accent);
+
+  font-family: var(--font-family-base, inherit);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+/* ========================================
+   SIZES
+======================================== */
+
+.ui-badge--small {
+  gap: 5px;
+  padding: 3px 8px;
+  font-size: 11px;
+}
+
+.ui-badge--medium {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.ui-badge--large {
+  gap: 7px;
+  padding: 7px 12px;
+  font-size: 13px;
+}
+
+/* ========================================
+   VARIANTS
+======================================== */
+
+.ui-badge--default {
+  --badge-accent: var(--color-text-secondary);
+  --badge-bg: var(--color-surface-secondary);
+}
+
+.ui-badge--primary {
+  --badge-accent: var(--color-primary);
+  --badge-bg: var(--color-primary-subtle);
+}
+
+.ui-badge--success {
+  --badge-accent: var(--color-success);
+  --badge-bg: var(--color-success-subtle);
+}
+
+.ui-badge--warning {
+  --badge-accent: var(--color-warning);
+  --badge-bg: var(--color-warning-subtle);
+}
+
+.ui-badge--danger {
+  --badge-accent: var(--color-danger);
+  --badge-bg: var(--color-danger-subtle);
+}
+
+.ui-badge--info {
+  --badge-accent: var(--color-info);
+  --badge-bg: var(--color-info-subtle);
+}
+
+/* ========================================
+   DOT INDICATOR
+======================================== */
+
+.ui-badge__dot {
+  display: inline-block;
+  flex: 0 0 6px;
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* Slightly larger dot on large badges */
+.ui-badge--large .ui-badge__dot {
+  flex-basis: 7px;
+  width: 7px;
+  height: 7px;
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-badge {
+    transition: none;
+  }
+}

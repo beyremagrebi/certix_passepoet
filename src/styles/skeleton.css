@@ -1,0 +1,36 @@
+
+.skeleton {
+  display: inline-block;
+  background: var(--color-surface-secondary);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton--text {
+  height: 1em;
+  min-width: 2rem;
+  border-radius: 0.25rem;
+  vertical-align: middle;
+}
+
+.skeleton--circular {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.skeleton--rectangular {
+  min-height: 1rem;
+  border-radius: 0.5rem;
+}
+
+@keyframes skeleton-pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}

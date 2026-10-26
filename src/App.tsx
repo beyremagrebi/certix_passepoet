@@ -1,5 +1,8 @@
 
 import { useState } from "react";
+import { ToastProvider, useToast } from "./components/ui/global/Toast";
+import { Spinner } from "./components/ui/global/Spinner";
+import { Skeleton } from "./components/ui/global/Skeleton";
 
 import { Body } from "./components/ui/typography/Body";
 import { Label } from "./components/ui/typography/Label";
@@ -11,12 +14,37 @@ import { Card } from "./components/ui/global/Card";
 import { ColorPaletteSelector } from "./components/ui/global/ColorPaletteSelecotr";
 
 import { useTheme } from "./components/providers/ThemeProvider";
+import { Avatar } from "./components/ui/global/Avatar";
+import { Alert } from "./components/ui/global/Alert";
+import { Badge } from "./components/ui/global/Badge";
+import { Checkbox } from "./components/ui/global/Checkbox";
+import { Switch } from "./components/ui/global/Switch";
+import { Select } from "./components/ui/global/Select";
 
-function App() {
+function AppContent() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { mode, setMode, resolvedTheme } = useTheme();
+  const [emailNotifications, setEmailNotifications] = useState(true);
+  const [marketingEmails, setMarketingEmails] = useState(false);
+  const [selectedRole, setSelectedRole] = useState("");
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [showSkeleton, setShowSkeleton] = useState(true);
+  const { showToast } = useToast();
+
+  const handleSave = () => {
+    setIsSaving(true);
+    window.setTimeout(() => {
+      setIsSaving(false);
+      showToast({
+        title: "Success!",
+        description: "Your changes have been saved.",
+        variant: "success",
+      });
+    }, 2000);
+  };
 
   return (
     <main className="page-layout">
@@ -269,8 +297,408 @@ function App() {
             </div>
           </div>
         </Card>
+
+
+        {/* Badges */}
+        <Card>
+          <div className="stack">
+            <Title size="large">Badges</Title>
+
+            <Body size="medium">
+              Modern status indicators, labels, and metadata badges.
+            </Body>
+
+            {/* Variants */}
+            <div className="stack stack-sm">
+              <Title size="small">Variants</Title>
+
+              <div className="cluster">
+                <Badge variant="default">Default</Badge>
+                <Badge variant="primary">Featured</Badge>
+                <Badge variant="success">Success</Badge>
+                <Badge variant="warning">Pending</Badge>
+                <Badge variant="danger">Failed</Badge>
+                <Badge variant="info">Information</Badge>
+              </div>
+            </div>
+
+            {/* Status badges */}
+            <div className="stack stack-sm">
+              <Title size="small">Status</Title>
+
+              <div className="cluster">
+                <Badge variant="success" dot>Online</Badge>
+                <Badge variant="warning" dot>Away</Badge>
+                <Badge variant="danger" dot>Offline</Badge>
+                <Badge variant="info" dot>Processing</Badge>
+              </div>
+            </div>
+
+            {/* Sizes */}
+            <div className="stack stack-sm">
+              <Title size="small">Sizes</Title>
+
+              <div className="cluster">
+                <Badge size="small" variant="primary">
+                  Small
+                </Badge>
+
+                <Badge size="medium" variant="primary">
+                  Medium
+                </Badge>
+
+                <Badge size="large" variant="primary">
+                  Large
+                </Badge>
+              </div>
+            </div>
+
+            {/* Real-world examples */}
+            <div className="stack stack-sm">
+              <Title size="small">Use cases</Title>
+
+              <div className="cluster">
+                <Badge variant="success" dot>Published</Badge>
+                <Badge variant="warning">Awaiting review</Badge>
+                <Badge variant="primary">PRO</Badge>
+                <Badge variant="info">New</Badge>
+                <Badge variant="default">v1.0.0</Badge>
+              </div>
+            </div>
+
+          </div>
+        </Card>
+
+
+        {/* Alerts */}
+        <Card>
+          <div className="stack">
+            <Title size="large">Alerts</Title>
+
+            <Alert variant="success" title="Success">
+              Your changes have been saved.
+            </Alert>
+
+            <Alert variant="warning" title="Warning">
+              Please review the information before continuing.
+            </Alert>
+
+            <Alert variant="error" title="Error" dismissible>
+              Something went wrong. Please try again.
+            </Alert>
+
+            <Alert variant="info" title="Information" dismissible>
+              A new update is available.
+            </Alert>
+          </div>
+        </Card>
+
+        {/* Toast notifications */}
+        <Card>
+          <div className="stack">
+            <Title size="large">Toast Notifications</Title>
+            <Body size="medium">
+              Temporary feedback messages for successful actions, errors, and updates.
+            </Body>
+
+            <div className="cluster">
+              <Button
+                onClick={() =>
+                  showToast({
+                    title: "Success!",
+                    description: "Your changes have been saved.",
+                    variant: "success",
+                  })
+                }
+              >
+                Success Toast
+              </Button>
+
+              <Button
+                variant="danger"
+                onClick={() =>
+                  showToast({
+                    title: "Something went wrong",
+                    description: "Please try again.",
+                    variant: "error",
+                  })
+                }
+              >
+                Error Toast
+              </Button>
+
+              <Button
+                variant="outline"
+                onClick={() =>
+                  showToast({
+                    title: "Please note",
+                    description: "Review your information before continuing.",
+                    variant: "warning",
+                  })
+                }
+              >
+                Warning Toast
+              </Button>
+
+              <Button
+                variant="secondary"
+                onClick={() =>
+                  showToast({
+                    title: "Information",
+                    description: "A new update is available.",
+                    variant: "info",
+                  })
+                }
+              >
+                Info Toast
+              </Button>
+            </div>
+          </div>
+        </Card>
+
+        {/* Spinners */}
+        <Card>
+          <div className="stack">
+            <Title size="large">Spinners</Title>
+            <Body size="medium">
+              Loading indicators for async actions and content.
+            </Body>
+
+            <div className="cluster">
+              <Spinner size="small" />
+              <Spinner size="medium" />
+              <Spinner size="large" />
+            </div>
+
+            <div className="cluster">
+              <Button onClick={handleSave} disabled={isSaving}>
+                {isSaving ? <Spinner size="small" label="Saving..." /> : "Simulate Save"}
+              </Button>
+            </div>
+          </div>
+        </Card>
+
+        {/* Skeleton loading */}
+        <Card>
+          <div className="stack">
+            <Title size="large">Skeleton Loading</Title>
+            <Body size="medium">
+              Placeholder shapes displayed while content is loading.
+            </Body>
+
+            <Button
+              variant="outline"
+              onClick={() => setShowSkeleton((current) => !current)}
+            >
+              {showSkeleton ? "Show Loaded Content" : "Show Skeletons"}
+            </Button>
+
+            {showSkeleton ? (
+              <div className="stack">
+                <Skeleton variant="circular" width={48} height={48} />
+                <Skeleton width="60%" height="1.25rem" />
+                <Skeleton width="100%" height="1rem" />
+                <Skeleton width="85%" height="1rem" />
+                <Skeleton variant="rectangular" width="100%" height={120} />
+              </div>
+            ) : (
+              <div className="stack">
+                <Title size="medium">Loaded content</Title>
+                <Body size="medium">
+                  Your content has loaded successfully. This is where real data would appear.
+                </Body>
+              </div>
+            )}
+          </div>
+        </Card>
+
+        {/* Avatars */}
+        <Card>
+          <div className="stack">
+            <Title size="large">Avatars</Title>
+
+            <div className="cluster">
+              <Avatar name="Sarah Connor" size="small" />
+              <Avatar name="John Doe" size="medium" />
+              <Avatar name="Alex Morgan" size="large" />
+              <Avatar name="Taylor Smith" size="extra-large" />
+            </div>
+
+            <div className="cluster">
+              <Avatar
+                name="Jane Cooper"
+                src="https://i.pravatar.cc/100?img=47"
+              />
+              <Avatar name="John Smith" shape="square" />
+            </div>
+          </div>
+        </Card>
+
+        {/* Checkboxes */}
+        <Card>
+          <div className="stack">
+            <Title size="large">Checkboxes</Title>
+            <Body size="medium">
+              Selection controls with descriptions, validation, and sizes.
+            </Body>
+
+            <div className="stack">
+              <Checkbox
+                label="Email notifications"
+                description="Receive updates about your account."
+                checked={emailNotifications}
+                onChange={(event) =>
+                  setEmailNotifications(event.target.checked)
+                }
+              />
+
+              <Checkbox
+                label="Marketing emails"
+                description="Receive product news and announcements."
+                checked={marketingEmails}
+                onChange={(event) =>
+                  setMarketingEmails(event.target.checked)
+                }
+              />
+
+              <Checkbox
+                label="Disabled option"
+                description="This option is currently unavailable."
+                disabled
+              />
+
+              <Checkbox
+                label="Accept terms and conditions"
+                checked={acceptedTerms}
+                onChange={(event) =>
+                  setAcceptedTerms(event.target.checked)
+                }
+                error={
+                  !acceptedTerms
+                    ? "You must accept the terms to continue."
+                    : undefined
+                }
+              />
+            </div>
+
+            <div className="cluster">
+              <Checkbox size="small" label="Small" />
+              <Checkbox size="medium" label="Medium" />
+              <Checkbox size="large" label="Large" />
+            </div>
+          </div>
+        </Card>
+
+        {/* Switches */}
+        <Card>
+          <div className="stack">
+            <Title size="large">Switches</Title>
+            <Body size="medium">
+              Modern toggles for preferences and settings.
+            </Body>
+
+            <div className="stack">
+              <Switch
+                label="Email notifications"
+                description="Get notified when something important happens."
+                checked={emailNotifications}
+                onChange={(event) =>
+                  setEmailNotifications(event.target.checked)
+                }
+              />
+
+              <Switch
+                label="Marketing emails"
+                description="Receive occasional product updates."
+                checked={marketingEmails}
+                onChange={(event) =>
+                  setMarketingEmails(event.target.checked)
+                }
+              />
+
+              <Switch label="Disabled switch" disabled />
+
+              <Switch size="small" label="Small switch" />
+              <Switch size="medium" label="Medium switch" />
+              <Switch size="large" label="Large switch" />
+            </div>
+          </div>
+        </Card>
+
+        {/* Selects */}
+        <Card>
+          <div className="stack">
+            <Title size="large">Selects</Title>
+            <Body size="medium">
+              Dropdown fields with labels, hints, and validation states.
+            </Body>
+
+            <Select
+              label="Account role"
+              placeholder="Choose a role"
+              value={selectedRole}
+              onChange={(event) =>
+                setSelectedRole(event.target.value)
+              }
+              hint="Select the role assigned to this account."
+              fullWidth
+              required
+            >
+              <option value="admin">Administrator</option>
+              <option value="editor">Editor</option>
+              <option value="viewer">Viewer</option>
+            </Select>
+
+            <Select
+              label="Small select"
+              size="small"
+              defaultValue="indigo"
+            >
+              <option value="indigo">Indigo</option>
+              <option value="blue">Blue</option>
+              <option value="emerald">Emerald</option>
+            </Select>
+
+            <Select
+              label="Large select"
+              size="large"
+              placeholder="Choose a category"
+              defaultValue=""
+            >
+              <option value="design">Design</option>
+              <option value="development">Development</option>
+              <option value="marketing">Marketing</option>
+            </Select>
+
+            <Select
+              label="Select with error"
+              error="Please choose a valid option."
+              defaultValue=""
+            >
+              <option value="" disabled>
+                Choose an option
+              </option>
+              <option value="one">Option one</option>
+              <option value="two">Option two</option>
+            </Select>
+
+            <Select label="Disabled select" disabled defaultValue="viewer">
+              <option value="viewer">Viewer</option>
+            </Select>
+          </div>
+        </Card>
+
+
       </div>
     </main>
+  );
+}
+
+function App() {
+  return (
+    <ToastProvider>
+      <AppContent />
+    </ToastProvider>
   );
 }
 

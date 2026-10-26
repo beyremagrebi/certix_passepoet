@@ -30,19 +30,26 @@
   --color-border: #E7EAF1;
   --color-border-strong: #D1D7E4;
 
-  /* Status */
+  /* Success */
   --color-success: #15803D;
   --color-success-background: #DCFCE7;
+  --color-success-subtle: #F0FDF4;
 
+  /* Warning */
   --color-warning: #B45309;
   --color-warning-background: #FEF3C7;
+  --color-warning-subtle: #FFFBEB;
 
+  /* Danger / Error */
   --color-danger: #DC2626;
-  --color-error-background: #FEE2E2;
+  --color-danger-background: #FEE2E2;
   --color-danger-subtle: #FEF2F2;
+  --color-error-background: #FEE2E2;
 
+  /* Info */
   --color-info: #0369A1;
   --color-info-background: #E0F2FE;
+  --color-info-subtle: #F0F9FF;
 
   /* Overlay */
   --color-overlay: rgb(23 33 59 / 45%);
@@ -79,26 +86,36 @@
   --color-border: #303B55;
   --color-border-strong: #46516B;
 
-  /* Status */
+  /* Success */
   --color-success: #4ADE80;
   --color-success-background: #153B2A;
+  --color-success-subtle: #183629;
 
+  /* Warning */
   --color-warning: #FBBF24;
   --color-warning-background: #45351B;
+  --color-warning-subtle: #382D19;
 
+  /* Danger / Error */
   --color-danger: #F87171;
+  --color-danger-background: #452426;
+  --color-danger-subtle: #382126;
   --color-error-background: #452426;
-  --color-danger-subtle: #452426;
 
+  /* Info */
   --color-info: #7DD3FC;
   --color-info-background: #17364A;
+  --color-info-subtle: #1A3042;
 
   /* Overlay */
   --color-overlay: rgb(0 0 0 / 65%);
 }
 
 
-/* Dynamic color palettes */
+/* ========================================
+   DYNAMIC COLOR PALETTES
+======================================== */
+
 :root[data-palette] {
   --color-primary-light: color-mix(
     in srgb,
@@ -113,7 +130,12 @@
   );
 }
 
-/* Indigo is the default */
+
+/* ========================================
+   BRAND PALETTES
+======================================== */
+
+/* Indigo */
 :root[data-palette="indigo"] {
   --color-primary: #5255D9;
 }
@@ -143,11 +165,17 @@
   --color-primary: #EA580C;
 }
 
-/* Keep primary buttons readable in both themes */
+
+/* ========================================
+   PRIMARY BUTTON CONTRAST
+======================================== */
+
+/* Light theme: white text on brand colors */
 :root[data-palette] {
   --color-on-primary: #FFFFFF;
 }
 
+/* Dark theme: dark text on the lighter primary button */
 :root[data-theme="dark"][data-palette] {
-  --color-on-primary: #FFFFFF;
+  --color-on-primary: #171832;
 }
