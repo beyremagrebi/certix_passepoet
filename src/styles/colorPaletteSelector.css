@@ -1,0 +1,68 @@
+.palette-selector {
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+}
+
+.palette-selector-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.palette-selector-title {
+  margin: 0;
+  font-size: var(--font-size-label-large);
+  font-weight: var(--font-weight-semibold);
+}
+
+.palette-selector-current {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-body-small);
+}
+
+.palette-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.palette-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md, 8px);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: var(--font-size-label-medium);
+  cursor: pointer;
+}
+
+.palette-option:hover {
+  background: var(--color-surface-hover);
+}
+
+.palette-option-selected {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 1px var(--color-primary);
+}
+
+.palette-swatch {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.palette-option-name {
+  font-weight: var(--font-weight-medium);
+}
+
+.palette-check {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}

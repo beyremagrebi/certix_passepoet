@@ -1,4 +1,15 @@
 :root {
+  /* Font family */
+  --font-family-base: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
   /* Body — paragraphs and general content */
   --font-size-body-small: 0.75rem;   /* 12px */
   --font-size-body-medium: 0.875rem; /* 14px */
@@ -18,8 +29,16 @@
   --font-size-label-huge: 1.125rem;   /* 18px */
 }
 
-
 /* Body */
+.body-small,
+.body-medium,
+.body-large,
+.body-huge {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
+}
+
 .body-small {
   font-size: var(--font-size-body-small);
 }
@@ -37,6 +56,16 @@
 }
 
 /* Titles */
+.title-small,
+.title-medium,
+.title-large,
+.title-huge {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
 .title-small {
   font-size: var(--font-size-title-small);
 }
@@ -54,6 +83,15 @@
 }
 
 /* Labels */
+.label-small,
+.label-medium,
+.label-large,
+.label-huge {
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.4;
+}
+
 .label-small {
   font-size: var(--font-size-label-small);
 }
@@ -70,3 +108,14 @@
   font-size: var(--font-size-label-huge);
 }
 
+/* Label states */
+.label-required {
+  color: var(--color-danger, #dc2626);
+  font-weight: var(--font-weight-semibold);
+}
+
+.label-optional {
+  color: var(--color-text-muted, #737373);
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-regular);
+}

@@ -1,0 +1,46 @@
+.card {
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg, 12px);
+  min-width: 0;
+}
+
+/* Variants */
+.card-default {
+  box-shadow: none;
+}
+
+.card-outlined {
+  border: 1px solid var(--color-border-strong);
+  box-shadow: none;
+}
+
+.card-elevated {
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgb(23 33 59 / 8%);
+}
+
+/* Padding */
+.card-padding-small {
+  padding: 0.75rem;
+}
+
+.card-padding-medium {
+  padding: 1.25rem;
+}
+
+.card-padding-large {
+  padding: 1.75rem;
+}
+
+/* Width */
+.card-full-width {
+  width: 100%;
+}
+
+/* Dark theme */
+[data-theme="dark"] .card-elevated {
+  box-shadow: 0 4px 16px rgb(0 0 0 / 20%);
+}
