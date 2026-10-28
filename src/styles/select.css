@@ -6,7 +6,7 @@
 .ui-select-field {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-3);
+  gap: var(--spacing-2);
   min-width: 0;
   width: fit-content;
 }
@@ -36,11 +36,11 @@
 ======================================== */
 
 .ui-select {
-  --select-height: var(--spacing-20);
-  --select-padding-left: var(--spacing-6);
-  --select-padding-right: var(--spacing-20);
+  --select-padding-y: var(--spacing-3);
+  --select-padding-left: var(--spacing-4);
+  --select-padding-right: var(--spacing-12);
   --select-font-size: var(--font-size-body-medium);
-  --select-chevron-size: var(--spacing-5);
+  --select-chevron-size: var(--spacing-4);
   --select-chevron-offset: var(--spacing-4);
 
   position: relative;
@@ -50,24 +50,34 @@
 
 /* ========================================
    SIZES
+   Match input.css padding and typography
 ======================================== */
 
 .ui-select--small {
-  --select-height: var(--spacing-16);
-  --select-padding-left: var(--spacing-4);
-  --select-padding-right: var(--spacing-16);
+  --select-padding-y: var(--spacing-2);
+  --select-padding-left: var(--spacing-3);
+  --select-padding-right: var(--spacing-10);
   --select-font-size: var(--font-size-body-small);
-  --select-chevron-size: var(--spacing-4);
+  --select-chevron-size: var(--spacing-3);
   --select-chevron-offset: var(--spacing-3);
 }
 
+.ui-select--medium {
+  --select-padding-y: var(--spacing-3);
+  --select-padding-left: var(--spacing-4);
+  --select-padding-right: var(--spacing-12);
+  --select-font-size: var(--font-size-body-medium);
+  --select-chevron-size: var(--spacing-4);
+  --select-chevron-offset: var(--spacing-4);
+}
+
 .ui-select--large {
-  --select-height: var(--spacing-24);
-  --select-padding-left: var(--spacing-8);
-  --select-padding-right: var(--spacing-24);
+  --select-padding-y: var(--spacing-4);
+  --select-padding-left: var(--spacing-4);
+  --select-padding-right: var(--spacing-12);
   --select-font-size: var(--font-size-body-large);
-  --select-chevron-size: var(--spacing-6);
-  --select-chevron-offset: var(--spacing-5);
+  --select-chevron-size: var(--spacing-5);
+  --select-chevron-offset: var(--spacing-4);
 }
 
 /* ========================================
@@ -77,26 +87,30 @@
 .ui-select__control {
   appearance: none;
   display: block;
-  width: 100%;
-  height: var(--select-height);
   box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  margin: 0;
 
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: var(--select-padding-left);
-  padding-right: var(--select-padding-right);
+  padding:
+    var(--select-padding-y)
+    var(--select-padding-right)
+    var(--select-padding-y)
+    var(--select-padding-left);
 
   border: var(--border-width-thin, 1px) solid
     var(--color-border-strong);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-input);
   outline: none;
 
-  background: var(--color-surface);
+  background-color: var(--color-surface);
   color: var(--color-text);
 
   font-family: var(--font-family-base);
   font-size: var(--select-font-size);
-  line-height: 1.4;
+  font-weight: var(--font-weight-regular);
+  line-height: 1.5;
 
   cursor: pointer;
 
@@ -107,21 +121,44 @@
 }
 
 /* ========================================
+   PLACEHOLDER / EMPTY VALUE
+======================================== */
+
+.ui-select__control:invalid {
+  color: var(--color-text-muted);
+}
+
+.ui-select__control option {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+.ui-select__control option:disabled {
+  color: var(--color-text-muted);
+}
+
+/* ========================================
    HOVER
 ======================================== */
 
-.ui-select__control:hover:not(:disabled) {
-  border-color: var(--color-primary);
+.ui-select__control:hover:not(:disabled):not(:focus) {
+  border-color: var(--color-border-strong);
 }
 
 /* ========================================
    FOCUS
 ======================================== */
 
+.ui-select__control:focus,
 .ui-select__control:focus-visible {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 var(--spacing-2)
-    color-mix(in srgb, var(--color-primary) 18%, transparent);
+  box-shadow:
+    0 0 0 var(--spacing-2)
+    color-mix(
+      in srgb,
+      var(--color-primary) 18%,
+      transparent
+    );
 }
 
 /* ========================================
@@ -129,19 +166,10 @@
 ======================================== */
 
 .ui-select__control:disabled {
-  background: var(--color-surface-secondary);
+  background-color: var(--color-surface-secondary);
   color: var(--color-text-muted);
   cursor: not-allowed;
   opacity: var(--opacity-disabled, 0.6);
-}
-
-/* ========================================
-   OPTIONS
-======================================== */
-
-.ui-select__control option {
-  background: var(--color-surface);
-  color: var(--color-text);
 }
 
 /* ========================================
@@ -153,33 +181,45 @@
   top: 50%;
   right: var(--select-chevron-offset);
 
+  display: block;
   width: var(--select-chevron-size);
   height: var(--select-chevron-size);
 
   color: var(--color-text-muted);
   transform: translateY(-50%);
   pointer-events: none;
+  transition:
+    color var(--duration-fast, 150ms) ease;
+}
+
+.ui-select:focus-within .ui-select__chevron {
+  color: var(--color-primary);
+}
+
+.ui-select--disabled .ui-select__chevron {
+  opacity: var(--opacity-disabled, 0.6);
 }
 
 /* ========================================
    ERROR STATE
 ======================================== */
 
-.ui-select--error .ui-select__control {
+.ui-select--error .ui-select__control,
+.ui-select__control[aria-invalid="true"] {
   border-color: var(--color-danger);
 }
 
-.ui-select--error .ui-select__control:focus-visible {
-  box-shadow: 0 0 0 var(--spacing-2)
-    color-mix(in srgb, var(--color-danger) 18%, transparent);
-}
-
-/* ========================================
-   DISABLED CHEVRON
-======================================== */
-
-.ui-select--disabled .ui-select__chevron {
-  opacity: 0.5;
+.ui-select--error .ui-select__control:focus,
+.ui-select--error .ui-select__control:focus-visible,
+.ui-select__control[aria-invalid="true"]:focus-visible {
+  border-color: var(--color-danger);
+  box-shadow:
+    0 0 0 var(--spacing-2)
+    color-mix(
+      in srgb,
+      var(--color-danger) 18%,
+      transparent
+    );
 }
 
 /* ========================================
@@ -188,9 +228,11 @@
 
 .ui-select__hint,
 .ui-select__error {
+  margin: 0;
   font-family: var(--font-family-base);
   font-size: var(--font-size-body-small);
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .ui-select__hint {
@@ -202,11 +244,20 @@
 }
 
 /* ========================================
+   FULL WIDTH
+======================================== */
+
+.ui-select-field--full-width .ui-select {
+  width: 100%;
+}
+
+/* ========================================
    REDUCED MOTION
 ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .ui-select__control {
+  .ui-select__control,
+  .ui-select__chevron {
     transition: none;
   }
 }

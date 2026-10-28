@@ -1,191 +1,236 @@
 
-/* ========================================
-   LIGHT THEME
-======================================== */
+/* =========================================================
+   THEME SYSTEM
+   Professional, comfortable light and dark themes
+   Palettes: indigo, blue, emerald, violet, rose, orange
+   ========================================================= */
+
+/* =========================================================
+   LIGHT THEME — SOFT NEUTRAL
+   ========================================================= */
 
 :root,
+:root[data-theme="light"],
 [data-theme="light"] {
   color-scheme: light;
 
-  /* Brand */
-  --color-primary: #5255D9;
+  /* Primary */
+  --color-primary: #5558B8;
   --color-on-primary: #FFFFFF;
-  --color-primary-light: #E8E8FC;
-  --color-primary-subtle: #F0F0FF;
+  --color-primary-light: #E8E9F7;
+  --color-primary-subtle: #F1F2FA;
 
-  /* Backgrounds and surfaces */
-  --color-background: #F7F8FC;
+  /* Backgrounds */
+  --color-background: #F4F5F7;
   --color-surface: #FFFFFF;
-  --color-surface-secondary: #F7F8FC;
-  --color-surface-hover: #F0F2F8;
+  --color-surface-secondary: #F8F9FB;
+  --color-surface-hover: #EEF0F4;
   --color-surface-elevated: #FFFFFF;
+  --color-surface-reverse: #252B38;
 
   /* Text */
-  --color-text: #17213B;
-  --color-text-secondary: #46516B;
-  --color-text-muted: #68738B;
+  --color-text: #252B38;
+  --color-text-secondary: #515B6B;
+  --color-text-muted: #737E8F;
   --color-text-inverse: #FFFFFF;
 
   /* Borders */
-  --color-border: #E7EAF1;
-  --color-border-strong: #D1D7E4;
+  --color-border: #E3E6EC;
+  --color-border-strong: #C9CFD9;
 
   /* Success */
-  --color-success: #15803D;
-  --color-success-background: #DCFCE7;
-  --color-success-subtle: #F0FDF4;
+  --color-success: #287653;
+  --color-success-background: #E7F3EB;
+  --color-success-subtle: #F3F9F5;
 
   /* Warning */
-  --color-warning: #B45309;
-  --color-warning-background: #FEF3C7;
-  --color-warning-subtle: #FFFBEB;
+  --color-warning: #94651D;
+  --color-warning-background: #F8F0DE;
+  --color-warning-subtle: #FCF8EF;
 
-  /* Danger / Error */
-  --color-danger: #DC2626;
-  --color-danger-background: #FEE2E2;
-  --color-danger-subtle: #FEF2F2;
-  --color-error-background: #FEE2E2;
+  /* Danger */
+  --color-danger: #BD4545;
+  --color-danger-background: #F8EAEA;
+  --color-danger-subtle: #FDF5F5;
+  --color-error-background: #F8EAEA;
 
   /* Info */
-  --color-info: #0369A1;
-  --color-info-background: #E0F2FE;
-  --color-info-subtle: #F0F9FF;
-  --color-skeleton: #e2e5eb;
+  --color-info: #356C91;
+  --color-info-background: #E8F1F7;
+  --color-info-subtle: #F4F8FB;
 
-  /* Overlay */
-  --color-overlay: rgb(23 33 59 / 45%);
+  /* Effects */
+  --color-skeleton: #E5E8ED;
+  --color-overlay: rgb(25 32 45 / 35%);
 }
 
+/* =========================================================
+   DARK THEME — MODERN SLATE
+   ========================================================= */
 
-/* ========================================
-   DARK THEME
-======================================== */
-
+:root[data-theme="dark"],
 [data-theme="dark"] {
   color-scheme: dark;
 
-  /* Brand */
-  --color-primary: #8587FF;
-  --color-on-primary: #171832;
-  --color-primary-light: #34365F;
-  --color-primary-subtle: #292B4B;
+  /* Primary */
+  --color-primary: #7BA7F7;
+  --color-on-primary: #101D32;
+  --color-primary-light: #30486B;
+  --color-primary-subtle: #263A56;
 
-  /* Backgrounds and surfaces */
-  --color-background: #101626;
-  --color-surface: #17213B;
-  --color-surface-secondary: #202B46;
-  --color-surface-hover: #283451;
-  --color-surface-elevated: #202B46;
+  /* Backgrounds */
+  --color-background: #18191A;
+  --color-surface: #242526;
+  --color-surface-secondary: #2D2F30;
+  --color-surface-hover: #383A3B;
+  --color-surface-elevated: #303234;
+  --color-surface-reverse: #F5F6F7;
 
   /* Text */
-  --color-text: #F3F5FC;
-  --color-text-secondary: #C2C9DA;
-  --color-text-muted: #9AA6BE;
-  --color-text-inverse: #17213B;
+  --color-text: #F5F6F7;
+  --color-text-secondary: #D0D3D7;
+  --color-text-muted: #A3A8AE;
+  --color-text-inverse: #18191A;
 
   /* Borders */
-  --color-border: #303B55;
-  --color-border-strong: #46516B;
+  --color-border: #3A3B3C;
+  --color-border-strong: #55585B;
 
   /* Success */
-  --color-success: #4ADE80;
-  --color-success-background: #153B2A;
-  --color-success-subtle: #183629;
+  --color-success: #65C98A;
+  --color-success-background: #203D2D;
+  --color-success-subtle: #1D3427;
 
   /* Warning */
-  --color-warning: #FBBF24;
-  --color-warning-background: #45351B;
-  --color-warning-subtle: #382D19;
+  --color-warning: #E9C46A;
+  --color-warning-background: #41371F;
+  --color-warning-subtle: #352F20;
 
-  /* Danger / Error */
-  --color-danger: #F87171;
-  --color-danger-background: #452426;
-  --color-danger-subtle: #382126;
-  --color-error-background: #452426;
+  /* Danger */
+  --color-danger: #F28B82;
+  --color-danger-background: #442B2B;
+  --color-danger-subtle: #372525;
+  --color-error-background: #442B2B;
 
   /* Info */
-  --color-info: #7DD3FC;
-  --color-info-background: #17364A;
-  --color-info-subtle: #1A3042;
-  
-  --color-skeleton: #525c70;
+  --color-info: #8AB4F8;
+  --color-info-background: #24364C;
+  --color-info-subtle: #202F41;
 
-  /* Overlay */
-  --color-overlay: rgb(0 0 0 / 65%);
+  /* Effects */
+  --color-skeleton: #454749;
+  --color-overlay: rgb(0 0 0 / 55%);
 }
 
+/* =========================================================
+   DYNAMIC PRIMARY SHADES
+   Automatically adapt to the selected palette
+   ========================================================= */
 
-/* ========================================
-   DYNAMIC COLOR PALETTES
-======================================== */
-
-:root[data-palette] {
+:root[data-palette],
+:root[data-theme][data-palette] {
   --color-primary-light: color-mix(
     in srgb,
-    var(--color-primary) 15%,
+    var(--color-primary) 16%,
     var(--color-surface)
   );
 
   --color-primary-subtle: color-mix(
     in srgb,
-    var(--color-primary) 8%,
+    var(--color-primary) 9%,
     var(--color-surface)
   );
 }
 
-
-/* ========================================
-   BRAND PALETTES
-======================================== */
+/* =========================================================
+   LIGHT PALETTES
+   ========================================================= */
 
 /* Indigo */
-:root[data-palette="indigo"] {
-  --color-primary: #5255D9;
-}
-
-/* Blue */
-:root[data-palette="blue"] {
-  --color-primary: #2563EB;
-}
-
-/* Emerald */
-:root[data-palette="emerald"] {
-  --color-primary: #059669;
-}
-
-/* Violet */
-:root[data-palette="violet"] {
-  --color-primary: #7C3AED;
-}
-
-/* Rose */
-:root[data-palette="rose"] {
-  --color-primary: #E11D48;
-}
-
-/* Orange */
-:root[data-palette="orange"] {
-  --color-primary: #EA580C;
-}
-
-
-/* ========================================
-   PRIMARY BUTTON CONTRAST
-======================================== */
-
-/* Light theme: white text on brand colors */
-:root[data-palette] {
+:root[data-theme="light"][data-palette="indigo"],
+:root:not([data-theme])[data-palette="indigo"] {
+  --color-primary: #5558B8;
   --color-on-primary: #FFFFFF;
 }
 
-/* Dark theme: dark text on the lighter primary button */
-:root[data-theme="dark"][data-palette] {
-  --color-on-primary: #171832;
+/* Blue */
+:root[data-theme="light"][data-palette="blue"],
+:root:not([data-theme])[data-palette="blue"] {
+  --color-primary: #3267C8;
+  --color-on-primary: #FFFFFF;
 }
 
-/* ========================================
-   SKELETON MOTION
-======================================== */
+/* Emerald */
+:root[data-theme="light"][data-palette="emerald"],
+:root:not([data-theme])[data-palette="emerald"] {
+  --color-primary: #287D61;
+  --color-on-primary: #FFFFFF;
+}
+
+/* Violet */
+:root[data-theme="light"][data-palette="violet"],
+:root:not([data-theme])[data-palette="violet"] {
+  --color-primary: #7652B8;
+  --color-on-primary: #FFFFFF;
+}
+
+/* Rose */
+:root[data-theme="light"][data-palette="rose"],
+:root:not([data-theme])[data-palette="rose"] {
+  --color-primary: #C74768;
+  --color-on-primary: #FFFFFF;
+}
+
+/* Orange */
+:root[data-theme="light"][data-palette="orange"],
+:root:not([data-theme])[data-palette="orange"] {
+  --color-primary: #B9662C;
+  --color-on-primary: #FFFFFF;
+}
+
+/* =========================================================
+   DARK PALETTES
+   ========================================================= */
+
+/* Indigo */
+:root[data-theme="dark"][data-palette="indigo"] {
+  --color-primary: #A5A9E8;
+  --color-on-primary: #20213A;
+}
+
+/* Blue */
+:root[data-theme="dark"][data-palette="blue"] {
+  --color-primary: #7BA7F7;
+  --color-on-primary: #101D32;
+}
+
+/* Emerald */
+:root[data-theme="dark"][data-palette="emerald"] {
+  --color-primary: #65C99A;
+  --color-on-primary: #163428;
+}
+
+/* Violet */
+:root[data-theme="dark"][data-palette="violet"] {
+  --color-primary: #B8A5DF;
+  --color-on-primary: #2E2540;
+}
+
+/* Rose */
+:root[data-theme="dark"][data-palette="rose"] {
+  --color-primary: #DFA0AE;
+  --color-on-primary: #3A252D;
+}
+
+/* Orange */
+:root[data-theme="dark"][data-palette="orange"] {
+  --color-primary: #DDB18A;
+  --color-on-primary: #392B20;
+}
+
+/* =========================================================
+   ANIMATION TOKENS
+   ========================================================= */
 
 :root {
   --duration-skeleton: 1400ms;

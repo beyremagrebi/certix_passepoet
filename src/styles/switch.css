@@ -124,7 +124,7 @@
   height: var(--switch-thumb);
 
   border-radius: var(--radius-full);
-  background: var(--color-surface);
+  background: var(--color-surface-reverse);
   box-shadow: var(--shadow-sm);
 
   transform: translateX(0);

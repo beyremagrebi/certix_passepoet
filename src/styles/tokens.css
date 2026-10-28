@@ -100,4 +100,7 @@
 
   /* State tokens */
   --opacity-disabled: 0.6;
+
+  --layout-min-width: 20rem;
+  --line-height-normal: 1.5;
 }

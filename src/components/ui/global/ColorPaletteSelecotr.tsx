@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 
 
 const palettes = [
-  { name: "Indigo", value: "indigo", color: "#5255D9" },
-  { name: "Blue", value: "blue", color: "#2563EB" },
-  { name: "Emerald", value: "emerald", color: "#059669" },
-  { name: "Violet", value: "violet", color: "#7C3AED" },
-  { name: "Rose", value: "rose", color: "#E11D48" },
-  { name: "Orange", value: "orange", color: "#EA580C" },
+  { name: "Indigo", value: "indigo", color: "#5558B8" },
+  { name: "Blue", value: "blue", color: "#3267C8" },
+  { name: "Emerald", value: "emerald", color: "#287D61" },
+  { name: "Violet", value: "violet", color: "#7652B8" },
+  { name: "Rose", value: "rose", color: "#C74768" },
+  { name: "Orange", value: "orange", color: "#B9662C" },
 ] as const;
 
 type Palette = (typeof palettes)[number]["value"];

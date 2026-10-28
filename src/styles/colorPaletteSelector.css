@@ -1,68 +1,140 @@
+
+/* ========================================
+   PALETTE SELECTOR
+======================================== */
+
 .palette-selector {
   font-family: var(--font-family-base);
   color: var(--color-text);
 }
 
+/* ========================================
+   HEADER
+======================================== */
+
 .palette-selector-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-8);
 }
 
 .palette-selector-title {
   margin: 0;
+  color: var(--color-text);
   font-size: var(--font-size-label-large);
   font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
 }
 
 .palette-selector-current {
   color: var(--color-text-muted);
   font-size: var(--font-size-body-small);
+  line-height: 1.5;
 }
+
+/* ========================================
+   PALETTE OPTIONS
+======================================== */
 
 .palette-options {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: var(--spacing-6);
 }
 
 .palette-option {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.625rem 0.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md, 8px);
+  gap: var(--spacing-4);
+
+  padding: var(--spacing-5) var(--spacing-6);
+
+  border: var(--border-width-thin, 1px) solid var(--color-border);
+  border-radius: var(--radius-md);
   background: var(--color-surface);
   color: var(--color-text);
+
   font-family: inherit;
   font-size: var(--font-size-label-medium);
+  line-height: 1.5;
+
   cursor: pointer;
+
+  transition:
+    background-color var(--duration-fast, 150ms) ease,
+    border-color var(--duration-fast, 150ms) ease,
+    box-shadow var(--duration-fast, 150ms) ease;
 }
 
+/* ========================================
+   HOVER
+======================================== */
+
 .palette-option:hover {
-  background: var(--color-surface-hover);
+  background: var(--color-surface-hover, var(--color-surface-secondary));
+  border-color: var(--color-border-strong);
 }
+
+/* ========================================
+   SELECTED STATE
+======================================== */
 
 .palette-option-selected {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 1px var(--color-primary);
+  box-shadow: 0 0 0 var(--border-width-thin, 1px) var(--color-primary);
 }
+
+.palette-option-selected:hover {
+  border-color: var(--color-primary);
+}
+
+/* ========================================
+   KEYBOARD ACCESSIBILITY
+======================================== */
+
+.palette-option:focus-visible {
+  outline: var(--border-width-focus, 2px) solid var(--color-primary);
+  outline-offset: var(--spacing-1);
+}
+
+/* ========================================
+   COLOR SWATCH
+======================================== */
 
 .palette-swatch {
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
-  border-radius: 50%;
+  display: block;
+  flex: 0 0 auto;
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+  border-radius: var(--radius-full);
 }
 
+/* ========================================
+   OPTION NAME
+======================================== */
+
 .palette-option-name {
+  color: inherit;
   font-weight: var(--font-weight-medium);
 }
+
+/* ========================================
+   SELECTED CHECKMARK
+======================================== */
 
 .palette-check {
   color: var(--color-primary);
   font-weight: var(--font-weight-bold);
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .palette-option {
+    transition: none;
+  }
 }
