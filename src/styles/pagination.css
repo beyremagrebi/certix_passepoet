@@ -1,0 +1,263 @@
+/* =========================================================
+   PAGINATION — THEME-AWARE DESIGN SYSTEM COMPONENT
+   ========================================================= */
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--pagination-gap, 1rem);
+  width: 100%;
+  min-width: 0;
+  padding-block: var(--pagination-padding-y, 1rem);
+
+  color: var(--color-text);
+  font-family: var(--font-family-body, inherit);
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-normal, 400);
+  line-height: var(--line-height-normal, 1.5);
+}
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.pagination__summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-1, 0.25rem);
+
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: var(--font-weight-normal, 400);
+  line-height: inherit;
+  white-space: nowrap;
+}
+
+.pagination__summary-label {
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-normal, 400);
+}
+
+/* =========================================================
+   PAGE CONTROLS
+   ========================================================= */
+
+.pagination__controls {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--pagination-button-gap, 0.25rem);
+}
+
+.pagination__button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+
+  min-width: var(--pagination-button-size, 2.25rem);
+  height: var(--pagination-button-size, 2.25rem);
+  padding-inline: var(--pagination-button-padding-x, 0.5rem);
+
+  border: var(--border-width, 1px) solid var(--color-border);
+  border-radius: var(--radius-md, 0.5rem);
+  background: var(--color-surface, transparent);
+  color: var(--color-text-secondary);
+
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: var(--font-weight-medium, 500);
+  line-height: 1;
+  cursor: pointer;
+
+  transition:
+    color var(--transition-fast, 160ms) ease,
+    background-color var(--transition-fast, 160ms) ease,
+    border-color var(--transition-fast, 160ms) ease;
+}
+
+.pagination__button:not(:disabled):hover {
+  border-color: var(--color-primary);
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+}
+
+.pagination__button:focus-visible,
+.pagination__page-size select:focus-visible {
+  outline: var(--focus-ring-width, 2px) solid var(--color-primary);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+/* Active page */
+
+.pagination__button--active,
+.pagination__button--active:disabled {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-on-primary, #fff);
+
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: var(--font-weight-semibold, 600);
+
+  cursor: default;
+}
+
+/* Disabled controls */
+
+.pagination__button:disabled:not(.pagination__button--active) {
+  opacity: var(--disabled-opacity, 0.5);
+  cursor: not-allowed;
+}
+
+/* Previous / next arrows */
+
+.pagination__arrow {
+  font-family: inherit;
+  font-size: var(--pagination-arrow-font-size, 1.5rem);
+  font-weight: var(--font-weight-normal, 400);
+  line-height: 1;
+}
+
+/* Ellipsis */
+
+.pagination__ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: var(--pagination-button-size, 2.25rem);
+
+  color: var(--color-text-muted);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: var(--font-weight-normal, 400);
+  line-height: inherit;
+
+  user-select: none;
+}
+
+/* =========================================================
+   PAGE SIZE SELECTOR
+   ========================================================= */
+
+.pagination__page-size {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2, 0.5rem);
+
+  color: var(--color-text-secondary);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: var(--font-weight-normal, 400);
+  line-height: inherit;
+  white-space: nowrap;
+}
+
+.pagination__page-size select {
+  min-height: var(--pagination-button-size, 2.25rem);
+  padding-inline: var(--spacing-2, 0.5rem);
+
+  border: var(--border-width, 1px) solid var(--color-border);
+  border-radius: var(--radius-md, 0.5rem);
+  background: var(--color-surface, transparent);
+  color: var(--color-text);
+
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: var(--font-weight-medium, 500);
+  line-height: var(--line-height-normal, 1.5);
+
+  cursor: pointer;
+}
+
+.pagination__page-size select:disabled {
+  opacity: var(--disabled-opacity, 0.5);
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   SIZE VARIANTS
+   ========================================================= */
+
+/* Small */
+
+.pagination--small {
+  --pagination-button-size: var(--pagination-button-size-sm, 1.875rem);
+  --pagination-button-padding-x: var(--spacing-2, 0.5rem);
+  --pagination-button-gap: var(--spacing-1, 0.25rem);
+  --pagination-arrow-font-size: var(--font-size-lg, 1.25rem);
+
+  font-size: var(--font-size-xs, 0.75rem);
+  line-height: var(--line-height-normal, 1.5);
+}
+
+/* Medium — default */
+
+.pagination--medium {
+  --pagination-button-size: var(--pagination-button-size-md, 2.25rem);
+  --pagination-button-padding-x: var(--spacing-2, 0.5rem);
+  --pagination-button-gap: var(--spacing-1, 0.25rem);
+  --pagination-arrow-font-size: var(--font-size-xl, 1.5rem);
+
+  font-size: var(--font-size-sm, 0.875rem);
+  line-height: var(--line-height-normal, 1.5);
+}
+
+/* Large */
+
+.pagination--large {
+  --pagination-button-size: var(--pagination-button-size-lg, 2.75rem);
+  --pagination-button-padding-x: var(--spacing-3, 0.75rem);
+  --pagination-button-gap: var(--spacing-2, 0.5rem);
+  --pagination-arrow-font-size: var(--font-size-2xl, 1.75rem);
+
+  font-size: var(--font-size-base, 1rem);
+  line-height: var(--line-height-normal, 1.5);
+}
+
+/* Entire component disabled */
+
+.pagination--disabled {
+  opacity: var(--disabled-opacity, 0.55);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 48rem) {
+  .pagination {
+    justify-content: center;
+  }
+
+  .pagination__summary {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .pagination__page-size {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .pagination__controls {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: var(--focus-ring-width, 2px);
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .pagination__button {
+    transition: none;
+  }
+}

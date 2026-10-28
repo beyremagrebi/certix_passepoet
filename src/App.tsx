@@ -22,6 +22,7 @@ import { Switch } from "./components/ui/global/Switch";
 import { Select } from "./components/ui/global/Select";
 import { Modal } from "./components/ui/global/Modal";
 import { Tabs, type TabItem, type TabSize } from "./components/ui/global/Tab";
+import UsersTable from "./pages/UsersTable";
 
 function AppContent() {
   const [email, setEmail] = useState("");
@@ -751,6 +752,10 @@ function AppContent() {
         ariaLabel="Example navigation"
       />
     </div>
+</Card>
+
+<Card>
+  <UsersTable></UsersTable>
 </Card>
 
 <Modal
