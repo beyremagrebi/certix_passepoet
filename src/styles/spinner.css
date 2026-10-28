@@ -1,38 +1,63 @@
 
+/* ========================================
+   SPINNER
+======================================== */
+
 .spinner {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--spacing-4);
   vertical-align: middle;
 }
+
+/* ========================================
+   SPINNER CIRCLE
+======================================== */
 
 .spinner__circle {
   display: inline-block;
   flex: 0 0 auto;
-  width: 1.25rem;
-  height: 1.25rem;
-  border: 3px solid var(--color-border);
+
+  width: var(--spacing-10);
+  height: var(--spacing-10);
+
+  border: var(--border-width-thick, 3px) solid var(--color-border);
   border-top-color: var(--color-primary);
-  border-radius: 50%;
-  animation: spinner-rotate 0.7s linear infinite;
+  border-radius: var(--radius-full);
+
+  animation: spinner-rotate var(--duration-slow, 700ms) linear infinite;
 }
 
+/* ========================================
+   SIZES
+======================================== */
+
 .spinner--small .spinner__circle {
-  width: 0.875rem;
-  height: 0.875rem;
-  border-width: 2px;
+  width: var(--spacing-7, 0.875rem);
+  height: var(--spacing-7, 0.875rem);
+  border-width: var(--border-width-thin, 2px);
 }
 
 .spinner--large .spinner__circle {
-  width: 2rem;
-  height: 2rem;
-  border-width: 3px;
+  width: var(--spacing-16);
+  height: var(--spacing-16);
+  border-width: var(--border-width-thick, 3px);
 }
 
+/* ========================================
+   LABEL
+======================================== */
+
 .spinner__label {
-  font-size: 0.875rem;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-large);
   color: var(--color-text-secondary);
+  line-height: 1.5;
 }
+
+/* ========================================
+   ANIMATION
+======================================== */
 
 @keyframes spinner-rotate {
   to {
@@ -40,8 +65,12 @@
   }
 }
 
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
 @media (prefers-reduced-motion: reduce) {
   .spinner__circle {
-    animation-duration: 1.8s;
+    animation-duration: var(--duration-slower, 1800ms);
   }
 }

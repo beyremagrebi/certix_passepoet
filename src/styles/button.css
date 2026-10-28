@@ -1,45 +1,58 @@
+
+/* ========================================
+   BUTTON BASE
+======================================== */
+
 .ui-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-2);
 
-  padding: 8px 14px;
-  border: 1px solid transparent;
-  border-radius: 6px;
+  padding: var(--spacing-4) var(--spacing-7, 0.875rem);
+  border: var(--border-width-thin, 1px) solid transparent;
+  border-radius: var(--radius-lg);
 
   font-family: var(--font-family-base);
+  font-size: var(--font-size-body-medium);
   font-weight: var(--font-weight-medium);
   line-height: 1.4;
-  cursor: pointer;
 
+  cursor: pointer;
   transition:
-    background-color 150ms ease,
-    color 150ms ease,
-    border-color 150ms ease,
-    box-shadow 150ms ease;
+    background-color var(--duration-fast, 150ms) ease,
+    color var(--duration-fast, 150ms) ease,
+    border-color var(--duration-fast, 150ms) ease,
+    box-shadow var(--duration-fast, 150ms) ease,
+    transform var(--duration-fast, 150ms) ease,
+    filter var(--duration-fast, 150ms) ease;
 }
 
-/* Sizes */
+/* ========================================
+   SIZES
+======================================== */
 
 .ui-button--small {
-  padding: 6px 10px;
+  padding: var(--spacing-3) var(--spacing-5);
   font-size: var(--font-size-body-small);
-  border-radius: 5px;
+  border-radius: var(--radius-md);
 }
 
 .ui-button--medium {
-  padding: 8px 14px;
+  padding: var(--spacing-4) var(--spacing-7, 0.875rem);
   font-size: var(--font-size-body-medium);
-  border-radius: 6px;
+  border-radius: var(--radius-lg);
 }
 
 .ui-button--large {
-  padding: 10px 18px;
+  padding: var(--spacing-5) var(--spacing-9, 1.125rem);
   font-size: var(--font-size-body-large);
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
 }
-/* Variants */
+
+/* ========================================
+   VARIANTS
+======================================== */
 
 .ui-button--primary {
   background: var(--color-primary);
@@ -60,23 +73,25 @@
 
 .ui-button--danger {
   background: var(--color-danger);
-  color: white;
+  color: var(--color-on-primary, #fff);
 }
 
-
-/* States */
+/* ========================================
+   HOVER STATES
+======================================== */
 
 .ui-button:hover:not(:disabled) {
-  transform: translateY(-1px);
+  transform: translateY(calc(var(--spacing-1) * -1));
 }
 
-.ui-button--primary:hover:not(:disabled) {
+.ui-button--primary:hover:not(:disabled),
+.ui-button--danger:hover:not(:disabled) {
   filter: brightness(0.92);
   box-shadow: var(--shadow-sm);
 }
 
 .ui-button--secondary:hover:not(:disabled) {
-  background: var(--color-surface-hover);
+  background: var(--color-surface-hover, var(--color-surface-secondary));
   border-color: var(--color-border-strong);
 }
 
@@ -84,31 +99,47 @@
   background: var(--color-primary-subtle);
 }
 
-.ui-button--danger:hover:not(:disabled) {
-  filter: brightness(0.92);
-  box-shadow: var(--shadow-sm);
-}
+/* ========================================
+   ACTIVE STATE
+======================================== */
 
 .ui-button:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: none;
+  box-shadow: var(--shadow-none);
 }
+
+/* ========================================
+   FOCUS STATE
+======================================== */
 
 .ui-button:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+  outline: var(--border-width-focus, 2px) solid var(--color-primary);
+  outline-offset: var(--spacing-1);
 }
 
+/* ========================================
+   DISABLED STATE
+======================================== */
+
 .ui-button:disabled {
-  opacity: 0.6;
+  opacity: var(--opacity-disabled, 0.6);
   cursor: not-allowed;
   transform: none;
-  box-shadow: none;
+  box-shadow: var(--shadow-none);
+  filter: none;
 }
+
+/* ========================================
+   FULL WIDTH
+======================================== */
 
 .ui-button--full-width {
   width: 100%;
 }
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .ui-button {

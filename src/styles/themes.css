@@ -50,6 +50,7 @@
   --color-info: #0369A1;
   --color-info-background: #E0F2FE;
   --color-info-subtle: #F0F9FF;
+  --color-skeleton: #e2e5eb;
 
   /* Overlay */
   --color-overlay: rgb(23 33 59 / 45%);
@@ -106,6 +107,8 @@
   --color-info: #7DD3FC;
   --color-info-background: #17364A;
   --color-info-subtle: #1A3042;
+  
+  --color-skeleton: #525c70;
 
   /* Overlay */
   --color-overlay: rgb(0 0 0 / 65%);
@@ -178,4 +181,13 @@
 /* Dark theme: dark text on the lighter primary button */
 :root[data-theme="dark"][data-palette] {
   --color-on-primary: #171832;
+}
+
+/* ========================================
+   SKELETON MOTION
+======================================== */
+
+:root {
+  --duration-skeleton: 1400ms;
+  --opacity-skeleton-pulse: 0.65;
 }

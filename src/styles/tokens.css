@@ -1,23 +1,24 @@
-
 :root {
   /* ================================
      SPACING
-     Base scale: 4px
+     Compact scale: 2px base
   ================================= */
 
   --spacing-0: 0;
-  --spacing-1: 0.25rem;  /* 4px */
-  --spacing-2: 0.5rem;   /* 8px */
-  --spacing-3: 0.75rem;  /* 12px */
-  --spacing-4: 1rem;     /* 16px */
-  --spacing-5: 1.25rem;  /* 20px */
-  --spacing-6: 1.5rem;   /* 24px */
-  --spacing-8: 2rem;     /* 32px */
-  --spacing-10: 2.5rem;  /* 40px */
-  --spacing-12: 3rem;    /* 48px */
-  --spacing-16: 4rem;    /* 64px */
-  --spacing-20: 5rem;    /* 80px */
-  --spacing-24: 6rem;    /* 96px */
+  --spacing-1: 0.125rem;  /* 2px */
+  --spacing-2: 0.25rem;   /* 4px */
+  --spacing-3: 0.375rem;  /* 6px */
+  --spacing-4: 0.5rem;    /* 8px */
+  --spacing-5: 0.625rem;  /* 10px */
+  --spacing-6: 0.75rem;   /* 12px */
+  --spacing-7: 0.875rem; /* 14px */
+  --spacing-8: 1rem;      /* 16px */
+  --spacing-9: 1.125rem; /* 18px */
+  --spacing-10: 1.25rem;  /* 20px */
+  --spacing-12: 1.5rem;   /* 24px */
+  --spacing-16: 2rem;     /* 32px */
+  --spacing-20: 2.5rem;   /* 40px */
+  --spacing-24: 3rem;     /* 48px */
 
 
   /* ================================
@@ -25,11 +26,11 @@
   ================================= */
 
   --radius-none: 0;
-  --radius-sm: 0.25rem;    /* 4px */
-  --radius-md: 0.5rem;     /* 8px */
-  --radius-lg: 0.75rem;    /* 12px */
-  --radius-xl: 1rem;       /* 16px */
-  --radius-2xl: 1.5rem;    /* 24px */
+  --radius-sm: 0.1875rem; /* 3px */
+  --radius-md: 0.3125rem; /* 5px */
+  --radius-lg: 0.5rem;    /* 8px */
+  --radius-xl: 0.75rem;   /* 12px */
+  --radius-2xl: 1rem;     /* 16px */
   --radius-full: 9999px;
 
 
@@ -40,22 +41,22 @@
   --shadow-none: none;
 
   --shadow-sm:
-    0 1px 2px rgb(23 33 59 / 5%);
+    0 1px 2px rgb(23 33 59 / 4%);
 
   --shadow-md:
-    0 4px 6px -1px rgb(23 33 59 / 8%),
-    0 2px 4px -2px rgb(23 33 59 / 6%);
+    0 2px 4px -1px rgb(23 33 59 / 6%),
+    0 1px 2px -1px rgb(23 33 59 / 4%);
 
   --shadow-lg:
-    0 10px 15px -3px rgb(23 33 59 / 8%),
-    0 4px 6px -4px rgb(23 33 59 / 5%);
+    0 6px 10px -3px rgb(23 33 59 / 7%),
+    0 2px 4px -2px rgb(23 33 59 / 4%);
 
   --shadow-xl:
-    0 20px 25px -5px rgb(23 33 59 / 10%),
-    0 8px 10px -6px rgb(23 33 59 / 5%);
+    0 12px 18px -4px rgb(23 33 59 / 8%),
+    0 4px 6px -3px rgb(23 33 59 / 4%);
 
   --shadow-2xl:
-    0 25px 50px -12px rgb(23 33 59 / 20%);
+    0 20px 35px -10px rgb(23 33 59 / 15%);
 
 
   /* ================================
@@ -72,12 +73,31 @@
   --shadow-dropdown: var(--shadow-lg);
   --shadow-modal: var(--shadow-xl);
 
+
+  /* ================================
+     SEMANTIC COLORS
+  ================================= */
+
   --color-success: #15803d;
---color-success-subtle: #dcfce7;
+  --color-success-subtle: #dcfce7;
 
---color-warning: #b45309;
---color-warning-subtle: #fef3c7;
+  --color-warning: #b45309;
+  --color-warning-subtle: #fef3c7;
 
---color-info: #1d4ed8;
---color-info-subtle: #dbeafe;
+  --color-info: #1d4ed8;
+  --color-info-subtle: #dbeafe;
+
+  /* Border tokens */
+  --border-width-thin: 1px;
+  --border-width-focus: 2px;
+  --border-width-thick: 3px;
+
+  /* Motion tokens */
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 700ms;
+  --duration-slower: 1800ms;
+
+  /* State tokens */
+  --opacity-disabled: 0.6;
 }

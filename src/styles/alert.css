@@ -9,58 +9,68 @@
   position: relative;
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: var(--spacing-3);
   width: 100%;
-  padding: 18px 18px 18px 20px;
+  padding: var(--spacing-4) var(--spacing-4) var(--spacing-4) var(--spacing-5);
   overflow: hidden;
+  isolation: isolate;
 
   background: var(--alert-tint);
   border: 1px solid var(--color-border);
-  border-radius: 16px;
+  border-radius: var(--radius-card);
 
   color: var(--color-text);
-  box-shadow: 0 2px 8px rgb(20 30 60 / 3%);
+  box-shadow: var(--shadow-card);
 
-  animation: alert-enter 280ms ease-out;
-  isolation: isolate;
+  animation: alert-enter 200ms ease-out;
 }
 
-/* Accent strip */
+/* ========================================
+   ACCENT STRIP
+======================================== */
+
 .ui-alert::before {
   content: "";
   position: absolute;
   inset: 0 auto 0 0;
-  width: 4px;
+  width: var(--spacing-1);
   background: var(--alert-accent);
-  border-radius: 16px 0 0 16px;
+  border-radius: var(--radius-card) 0 0 var(--radius-card);
 }
 
-/* Subtle decorative glow */
+/* ========================================
+   SUBTLE DECORATIVE GLOW
+======================================== */
+
 .ui-alert::after {
   content: "";
   position: absolute;
   z-index: -1;
-  top: -38px;
-  left: -28px;
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
+  top: calc(var(--spacing-12) * -1);
+  left: calc(var(--spacing-8) * -1);
+  width: var(--spacing-24);
+  height: var(--spacing-24);
+
+  border-radius: var(--radius-full);
   background: var(--alert-accent);
   opacity: 0.07;
-  filter: blur(2px);
+  filter: blur(var(--spacing-1));
   pointer-events: none;
 }
 
-/* Icon bubble */
+/* ========================================
+   ICON
+======================================== */
+
 .ui-alert__icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 36px;
-  width: 36px;
-  height: 36px;
-  border-radius: 12px;
+  flex: 0 0 var(--spacing-8);
+  width: var(--spacing-8);
+  height: var(--spacing-8);
 
+  border-radius: var(--radius-md);
   background: color-mix(
     in srgb,
     var(--alert-accent) 13%,
@@ -68,58 +78,68 @@
   );
 
   color: var(--alert-accent);
-  font-size: 18px;
-  font-weight: 700;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-title-medium);
+  font-weight: var(--font-weight-bold);
   line-height: 1;
 }
 
-/* Content */
+/* ========================================
+   CONTENT
+======================================== */
+
 .ui-alert__content {
   flex: 1;
   min-width: 0;
-  padding-top: 1px;
+  padding-top: var(--spacing-0);
 }
 
 .ui-alert__title {
-  margin: 0 0 5px;
+  margin: 0 0 var(--spacing-1);
+
   color: var(--color-text);
-  font-size: 14px;
-  font-weight: 700;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-label-large);
+  font-weight: var(--font-weight-bold);
   line-height: 1.45;
   letter-spacing: -0.01em;
 }
 
 .ui-alert__message {
   color: var(--color-text-secondary);
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.65;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.6;
   overflow-wrap: anywhere;
 }
 
-/* Close button */
+/* ========================================
+   CLOSE BUTTON
+======================================== */
+
 .ui-alert__close {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 30px;
-  width: 30px;
-  height: 30px;
-  margin: -4px -4px 0 0;
-  padding: 0;
+  flex: 0 0 var(--spacing-6);
+  width: var(--spacing-6);
+  height: var(--spacing-6);
+  margin: calc(var(--spacing-1) * -1);
+  padding: var(--spacing-0);
 
   border: 0;
-  border-radius: 9px;
+  border-radius: var(--radius-sm);
   background: transparent;
   color: var(--color-text-muted);
 
-  font: inherit;
-  font-size: 20px;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-title-medium);
   line-height: 1;
   cursor: pointer;
 
   transition:
-    background 160ms ease,
+    background-color 160ms ease,
     color 160ms ease,
     transform 160ms ease;
 }
@@ -139,7 +159,7 @@
 
 .ui-alert__close:focus-visible {
   outline: 2px solid var(--alert-accent);
-  outline-offset: 2px;
+  outline-offset: var(--spacing-1);
 }
 
 /* ========================================
@@ -167,13 +187,13 @@
 }
 
 /* ========================================
-   INTERACTION
+   ANIMATION
 ======================================== */
 
 @keyframes alert-enter {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(var(--spacing-2));
   }
 
   to {
@@ -181,6 +201,10 @@
     transform: translateY(0);
   }
 }
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .ui-alert {

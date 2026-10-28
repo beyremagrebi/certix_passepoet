@@ -10,23 +10,23 @@
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
 
-  /* Body — paragraphs and general content */
-  --font-size-body-small: 0.75rem;   /* 12px */
-  --font-size-body-medium: 0.875rem; /* 14px */
-  --font-size-body-large: 1rem;      /* 16px */
-  --font-size-body-huge: 1.125rem;   /* 18px */
+  /* Body */
+  --font-size-body-small: 0.625rem;  /* 10px */
+  --font-size-body-medium: 0.6875rem; /* 11px */
+  --font-size-body-large: 0.75rem;    /* 12px */
+  --font-size-body-huge: 0.8125rem;   /* 13px */
 
-  /* Titles — headings and page titles */
-  --font-size-title-small: 1.25rem;  /* 20px */
-  --font-size-title-medium: 1.5rem;  /* 24px */
-  --font-size-title-large: 1.875rem; /* 30px */
-  --font-size-title-huge: 2.25rem;   /* 36px */
+  /* Titles */
+  --font-size-title-small: 0.875rem;  /* 14px */
+  --font-size-title-medium: 1rem;     /* 16px */
+  --font-size-title-large: 1.125rem;  /* 18px */
+  --font-size-title-huge: 1.5rem;     /* 24px */
 
-  /* Labels — buttons, inputs, captions */
-  --font-size-label-small: 0.75rem;   /* 12px */
-  --font-size-label-medium: 0.875rem; /* 14px */
-  --font-size-label-large: 1rem;      /* 16px */
-  --font-size-label-huge: 1.125rem;   /* 18px */
+  /* Labels */
+  --font-size-label-small: 0.625rem;  /* 10px */
+  --font-size-label-medium: 0.6875rem; /* 11px */
+  --font-size-label-large: 0.75rem;   /* 12px */
+  --font-size-label-huge: 0.8125rem;  /* 13px */
 }
 
 /* Body */
@@ -62,8 +62,8 @@
 .title-huge {
   font-family: var(--font-family-base);
   font-weight: var(--font-weight-bold);
-  line-height: 1.2;
-  letter-spacing: -0.025em;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
 
 .title-small {

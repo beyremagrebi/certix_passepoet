@@ -1,120 +1,231 @@
+
+/* ========================================
+   SWITCH
+======================================== */
+
 .ui-switch {
   --switch-width: 40px;
   --switch-height: 24px;
   --switch-thumb: 18px;
-  --switch-inset: 3px;
+  --switch-inset: 2px;
+  --switch-border: 1px;
+
+  --switch-travel: calc(
+    var(--switch-width) -
+    var(--switch-thumb) -
+    var(--switch-inset) -
+    var(--switch-inset) -
+    var(--switch-border) -
+    var(--switch-border)
+  );
+
+  width: fit-content;
+  max-width: 100%;
 }
+
+/* ========================================
+   SIZES
+======================================== */
 
 .ui-switch--small {
   --switch-width: 32px;
-  --switch-height: 19px;
-  --switch-thumb: 13px;
-  --switch-inset: 3px;
+  --switch-height: 20px;
+  --switch-thumb: 14px;
+  --switch-inset: 2px;
+}
+
+.ui-switch--medium {
+  --switch-width: 40px;
+  --switch-height: 24px;
+  --switch-thumb: 18px;
+  --switch-inset: 2px;
 }
 
 .ui-switch--large {
   --switch-width: 48px;
   --switch-height: 28px;
   --switch-thumb: 22px;
-  --switch-inset: 3px;
+  --switch-inset: 2px;
 }
+
+/* ========================================
+   LABEL
+======================================== */
 
 .ui-switch__label {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--spacing-3);
   max-width: 100%;
   cursor: pointer;
   user-select: none;
 }
 
+/* ========================================
+   CONTROL
+======================================== */
+
 .ui-switch__control {
   position: relative;
   display: inline-flex;
+  align-items: center;
   flex: 0 0 var(--switch-width);
   width: var(--switch-width);
   height: var(--switch-height);
 }
 
+/* ========================================
+   INPUT
+======================================== */
+
 .ui-switch__input {
   position: absolute;
-  inset: 0;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
+  inset: -4px;
+  z-index: 2;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
   margin: 0;
   opacity: 0;
   cursor: pointer;
 }
 
+/* ========================================
+   TRACK
+======================================== */
+
 .ui-switch__track {
   display: flex;
   align-items: center;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
   padding: var(--switch-inset);
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-full, 999px);
+
+  border: var(--switch-border) solid var(--color-border-strong);
+  border-radius: var(--radius-full);
   background: var(--color-surface-secondary);
+
   transition:
-    background 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
+    background-color 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+
+  will-change: background-color;
 }
+
+/* ========================================
+   THUMB
+======================================== */
 
 .ui-switch__thumb {
   display: block;
+  flex: 0 0 var(--switch-thumb);
   width: var(--switch-thumb);
   height: var(--switch-thumb);
-  flex: 0 0 var(--switch-thumb);
-  border-radius: 50%;
+
+  border-radius: var(--radius-full);
   background: var(--color-surface);
-  box-shadow: 0 1px 3px rgb(0 0 0 / 18%);
+  box-shadow: var(--shadow-sm);
+
   transform: translateX(0);
   transition:
-    transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
-    background 180ms ease;
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    width 200ms ease,
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+
+  will-change: transform;
 }
+
+/* ========================================
+   CHECKED STATE
+======================================== */
 
 .ui-switch__input:checked + .ui-switch__track {
   background: var(--color-primary);
   border-color: var(--color-primary);
 }
 
-.ui-switch__input:checked + .ui-switch__track
-  .ui-switch__thumb {
-  background: var(--color-on-primary, #fff);
-  transform: translateX(
-    calc(var(--switch-width) - var(--switch-thumb) - var(--switch-inset) * 2 - 2px)
-  );
+.ui-switch__input:checked + .ui-switch__track .ui-switch__thumb {
+  background: var(--color-on-primary);
+  transform: translateX(var(--switch-travel));
 }
 
+/* ========================================
+   HOVER STATE
+======================================== */
+
+@media (hover: hover) {
+  .ui-switch__label:hover .ui-switch__track {
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--color-primary) 8%, transparent);
+  }
+
+  .ui-switch__label:hover .ui-switch__thumb {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* ========================================
+   ACTIVE STATE
+======================================== */
+
+.ui-switch__input:active + .ui-switch__track .ui-switch__thumb {
+  transform: scale(0.92);
+}
+
+.ui-switch__input:checked:active + .ui-switch__track .ui-switch__thumb {
+  transform: translateX(var(--switch-travel)) scale(0.92);
+}
+
+/* ========================================
+   FOCUS STATE
+======================================== */
+
 .ui-switch__input:focus-visible + .ui-switch__track {
-  outline: 3px solid
-    color-mix(in srgb, var(--color-primary) 25%, transparent);
+  outline: 2px solid
+    color-mix(in srgb, var(--color-primary) 45%, transparent);
   outline-offset: 3px;
 }
+
+/* ========================================
+   CONTENT
+======================================== */
 
 .ui-switch__content {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: var(--spacing-1);
   min-width: 0;
 }
 
+/* ========================================
+   TITLE
+======================================== */
+
 .ui-switch__title {
   color: var(--color-text);
-  font-size: var(--font-size-body-medium, 14px);
-  font-weight: var(--font-weight-medium, 500);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-medium);
   line-height: 1.5;
 }
 
+/* ========================================
+   DESCRIPTION
+======================================== */
+
 .ui-switch__description {
   color: var(--color-text-muted);
-  font-size: var(--font-size-body-small, 12px);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-small);
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
+
+/* ========================================
+   DISABLED STATE
+======================================== */
 
 .ui-switch--disabled .ui-switch__label {
   cursor: not-allowed;
@@ -124,6 +235,10 @@
 .ui-switch--disabled .ui-switch__input {
   cursor: not-allowed;
 }
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .ui-switch__track,

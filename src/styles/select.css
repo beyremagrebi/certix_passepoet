@@ -1,7 +1,12 @@
+
+/* ========================================
+   SELECT FIELD
+======================================== */
+
 .ui-select-field {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: var(--spacing-3);
   min-width: 0;
   width: fit-content;
 }
@@ -10,10 +15,15 @@
   width: 100%;
 }
 
+/* ========================================
+   LABEL
+======================================== */
+
 .ui-select__label {
   color: var(--color-text);
-  font-size: var(--font-size-body-medium, 14px);
-  font-weight: var(--font-weight-medium, 500);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-medium);
   line-height: 1.5;
 }
 
@@ -21,19 +31,48 @@
   color: var(--color-danger);
 }
 
+/* ========================================
+   SELECT BASE
+======================================== */
+
 .ui-select {
-  --select-height: 42px;
+  --select-height: var(--spacing-20);
+  --select-padding-left: var(--spacing-6);
+  --select-padding-right: var(--spacing-20);
+  --select-font-size: var(--font-size-body-medium);
+  --select-chevron-size: var(--spacing-5);
+  --select-chevron-offset: var(--spacing-4);
+
   position: relative;
   min-width: 0;
+  width: 100%;
 }
 
+/* ========================================
+   SIZES
+======================================== */
+
 .ui-select--small {
-  --select-height: 34px;
+  --select-height: var(--spacing-16);
+  --select-padding-left: var(--spacing-4);
+  --select-padding-right: var(--spacing-16);
+  --select-font-size: var(--font-size-body-small);
+  --select-chevron-size: var(--spacing-4);
+  --select-chevron-offset: var(--spacing-3);
 }
 
 .ui-select--large {
-  --select-height: 50px;
+  --select-height: var(--spacing-24);
+  --select-padding-left: var(--spacing-8);
+  --select-padding-right: var(--spacing-24);
+  --select-font-size: var(--font-size-body-large);
+  --select-chevron-size: var(--spacing-6);
+  --select-chevron-offset: var(--spacing-5);
 }
+
+/* ========================================
+   SELECT CONTROL
+======================================== */
 
 .ui-select__control {
   appearance: none;
@@ -41,84 +80,116 @@
   width: 100%;
   height: var(--select-height);
   box-sizing: border-box;
-  padding: 0 42px 0 13px;
 
-  border: 1px solid var(--color-border-strong);
-  border-radius: var(--radius-md, 10px);
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: var(--select-padding-left);
+  padding-right: var(--select-padding-right);
+
+  border: var(--border-width-thin, 1px) solid
+    var(--color-border-strong);
+  border-radius: var(--radius-lg);
   outline: none;
 
   background: var(--color-surface);
   color: var(--color-text);
-  font-family: var(--font-family-base, inherit);
-  font-size: var(--font-size-body-medium, 14px);
+
+  font-family: var(--font-family-base);
+  font-size: var(--select-font-size);
   line-height: 1.4;
 
   cursor: pointer;
+
   transition:
-    border-color 160ms ease,
-    box-shadow 160ms ease,
-    background 160ms ease;
+    border-color var(--duration-fast, 150ms) ease,
+    box-shadow var(--duration-fast, 150ms) ease,
+    background-color var(--duration-fast, 150ms) ease;
 }
 
-.ui-select--small .ui-select__control {
-  padding-left: 10px;
-  font-size: var(--font-size-body-small, 12px);
-}
-
-.ui-select--large .ui-select__control {
-  padding-left: 15px;
-  font-size: var(--font-size-body-large, 16px);
-}
+/* ========================================
+   HOVER
+======================================== */
 
 .ui-select__control:hover:not(:disabled) {
   border-color: var(--color-primary);
 }
 
+/* ========================================
+   FOCUS
+======================================== */
+
 .ui-select__control:focus-visible {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px
+  box-shadow: 0 0 0 var(--spacing-2)
     color-mix(in srgb, var(--color-primary) 18%, transparent);
 }
+
+/* ========================================
+   DISABLED
+======================================== */
 
 .ui-select__control:disabled {
   background: var(--color-surface-secondary);
   color: var(--color-text-muted);
   cursor: not-allowed;
-  opacity: 0.7;
+  opacity: var(--opacity-disabled, 0.6);
 }
+
+/* ========================================
+   OPTIONS
+======================================== */
 
 .ui-select__control option {
   background: var(--color-surface);
   color: var(--color-text);
 }
 
+/* ========================================
+   CHEVRON
+======================================== */
+
 .ui-select__chevron {
   position: absolute;
   top: 50%;
-  right: 12px;
-  width: 18px;
-  height: 18px;
+  right: var(--select-chevron-offset);
+
+  width: var(--select-chevron-size);
+  height: var(--select-chevron-size);
+
   color: var(--color-text-muted);
   transform: translateY(-50%);
   pointer-events: none;
 }
+
+/* ========================================
+   ERROR STATE
+======================================== */
 
 .ui-select--error .ui-select__control {
   border-color: var(--color-danger);
 }
 
 .ui-select--error .ui-select__control:focus-visible {
-  box-shadow: 0 0 0 3px
+  box-shadow: 0 0 0 var(--spacing-2)
     color-mix(in srgb, var(--color-danger) 18%, transparent);
 }
+
+/* ========================================
+   DISABLED CHEVRON
+======================================== */
 
 .ui-select--disabled .ui-select__chevron {
   opacity: 0.5;
 }
 
+/* ========================================
+   HINT & ERROR TEXT
+======================================== */
+
 .ui-select__hint,
 .ui-select__error {
-  font-size: var(--font-size-body-small, 12px);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-small);
   line-height: 1.5;
 }
 
@@ -128,4 +199,14 @@
 
 .ui-select__error {
   color: var(--color-danger);
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-select__control {
+    transition: none;
+  }
 }

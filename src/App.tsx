@@ -20,6 +20,7 @@ import { Badge } from "./components/ui/global/Badge";
 import { Checkbox } from "./components/ui/global/Checkbox";
 import { Switch } from "./components/ui/global/Switch";
 import { Select } from "./components/ui/global/Select";
+import { Modal } from "./components/ui/global/Modal";
 
 function AppContent() {
   const [email, setEmail] = useState("");
@@ -32,7 +33,9 @@ function AppContent() {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [showSkeleton, setShowSkeleton] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { showToast } = useToast();
+
 
   const handleSave = () => {
     setIsSaving(true);
@@ -687,6 +690,64 @@ function AppContent() {
             </Select>
           </div>
         </Card>
+
+{/* Right-side Modal / Drawer */}
+<Card>
+  <div className="stack">
+    <Title size="large">Modal / Drawer</Title>
+
+    <Body size="medium">
+      A reusable dialog that slides in from the right side.
+    </Body>
+
+    <div className="cluster">
+      <Button onClick={() => setIsModalOpen(true)}>
+        Open Right Drawer
+      </Button>
+    </div>
+  </div>
+</Card>
+
+<Modal
+  open={isModalOpen}
+  onClose={() => setIsModalOpen(false)}
+  title="Account Settings"
+  width="420px"
+>
+  <div className="stack stack-sm">
+    <Body size="medium">
+      Manage your account preferences here.
+    </Body>
+    <Label htmlFor="full-name" size="medium" required>
+      name
+    </Label>
+    <Input
+      id="full-name"
+      placeholder="Enter your name"
+    />
+      <Label htmlFor="email" size="medium" required>
+      Email
+    </Label>
+    <Input
+      id="email"
+      type="email"
+      placeholder="you@example.com"
+    />
+
+    <div className="cluster">
+      <Button onClick={() => setIsModalOpen(false)}>
+        Save Changes
+      </Button>
+
+      <Button
+        variant="outline"
+        onClick={() => setIsModalOpen(false)}
+      >
+        Cancel
+      </Button>
+    </div>
+  </div>
+</Modal>
 
 
       </div>
