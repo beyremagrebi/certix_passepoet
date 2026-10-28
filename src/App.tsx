@@ -21,6 +21,7 @@ import { Checkbox } from "./components/ui/global/Checkbox";
 import { Switch } from "./components/ui/global/Switch";
 import { Select } from "./components/ui/global/Select";
 import { Modal } from "./components/ui/global/Modal";
+import { Tabs, type TabItem, type TabSize } from "./components/ui/global/Tab";
 
 function AppContent() {
   const [email, setEmail] = useState("");
@@ -35,6 +36,26 @@ function AppContent() {
   const [showSkeleton, setShowSkeleton] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { showToast } = useToast();
+  const [activeTab, setActiveTab] = useState("overview");
+  const [size, setSize] = useState<TabSize>("medium");
+
+  const tabs: TabItem[] = [
+  {
+    value: "overview",
+    label: "Overview",
+    content: <div>Overview content goes here.</div>,
+  },
+  {
+    value: "settings",
+    label: "Settings",
+    content: <div>Settings content goes here.</div>,
+  },
+  {
+    value: "activity",
+    label: "Activity",
+    content: <div>Activity content goes here.</div>,
+  },
+];
 
 
   const handleSave = () => {
@@ -706,6 +727,30 @@ function AppContent() {
       </Button>
     </div>
   </div>
+</Card>
+
+<Card>
+      <div className="stack">
+
+      <Select
+        label="Tab size"
+        id="tabs-size"
+        value={size}
+        onChange={(event) => setSize(event.target.value as TabSize)}
+      >
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+      </Select>
+
+      <Tabs
+        tabs={tabs}
+        size={size}
+        selectedValue={activeTab}
+        onChange={setActiveTab}
+        ariaLabel="Example navigation"
+      />
+    </div>
 </Card>
 
 <Modal

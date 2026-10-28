@@ -103,4 +103,11 @@
 
   --layout-min-width: 20rem;
   --line-height-normal: 1.5;
+
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --disabled-opacity: 0.55;
+
+  --transition-fast: 160ms;
+  --transition-normal: 180ms;
 }
