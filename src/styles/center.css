@@ -1,7 +1,7 @@
-
 .ui-center {
   display: flex;
   gap: var(--center-gap, 0);
+  min-width: 0;
 }
 
 .ui-center--horizontal {
@@ -18,7 +18,9 @@
 }
 
 .ui-center--full-height {
-  min-height: 100vh;
+  height: 100%;
+  min-height: 0;
+  box-sizing: border-box;
 }
 
 .ui-center--inline {

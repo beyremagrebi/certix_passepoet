@@ -26,5 +26,8 @@
 @import "./spacing.css";
 @import "./center.css";
 @import "./dashboard.css";
+@import "./login.css";
+@import "./register.css";
+@import "./forgot-password.css";
 
 

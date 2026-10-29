@@ -1,9 +1,8 @@
-
 import type { HTMLAttributes, ReactNode } from "react";
+
 export type CenterAxis = "horizontal" | "vertical" | "both";
 
-export interface CenterProps
-  extends HTMLAttributes<HTMLDivElement> {
+export interface CenterProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   axis?: CenterAxis;
   fullHeight?: boolean;

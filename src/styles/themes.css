@@ -62,6 +62,14 @@
   /* Effects */
   --color-skeleton: #E5E8ED;
   --color-overlay: rgb(25 32 45 / 35%);
+
+
+  --color-login-panel: #E6E8EF;
+  --color-login-panel-text: #252B38;
+  --color-login-panel-muted: #596273;
+  --color-login-panel-accent: #5558C9;
+  --color-login-panel-border: rgb(37 43 56 / 16%);
+  --color-login-panel-glow: rgb(99 102 241 / 12%);
 }
 
 /* =========================================================
@@ -120,6 +128,13 @@
   /* Effects */
   --color-skeleton: #454749;
   --color-overlay: rgb(0 0 0 / 55%);
+
+  --color-login-panel: #202431;
+  --color-login-panel-text: #F5F6F7;
+  --color-login-panel-muted: #C0C5D0;
+  --color-login-panel-accent: #B8C0FF;
+  --color-login-panel-border: rgb(255 255 255 / 16%);
+  --color-login-panel-glow: rgb(123 167 247 / 14%);
 }
 
 /* =========================================================

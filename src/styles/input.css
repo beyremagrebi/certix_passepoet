@@ -1,4 +1,3 @@
-
 /* ================================
    INPUT BASE
 ================================ */
@@ -14,8 +13,10 @@
   display: block;
   width: 100%;
   min-width: 0;
+  min-height: 44px;
+  box-sizing: border-box;
 
-  padding: var(--spacing-3) var(--spacing-4);
+  padding: 10px var(--spacing-4);
 
   font-family: var(--font-family-base);
   font-size: var(--font-size-body-medium);
@@ -36,6 +37,10 @@
     background-color 150ms ease;
 }
 
+/* ================================
+   PLACEHOLDER
+================================ */
+
 .ui-input::placeholder {
   color: var(--color-text-muted);
   opacity: 1;
@@ -46,18 +51,21 @@
 ================================ */
 
 .ui-input--small {
-  padding: var(--spacing-2) var(--spacing-3);
+  min-height: 36px;
+  padding: 6px var(--spacing-3);
   font-size: var(--font-size-body-small);
   border-radius: var(--radius-sm);
 }
 
 .ui-input--medium {
-  padding: var(--spacing-3) var(--spacing-4);
+  min-height: 44px;
+  padding: 10px var(--spacing-4);
   font-size: var(--font-size-body-medium);
 }
 
 .ui-input--large {
-  padding: var(--spacing-4) var(--spacing-4);
+  min-height: 52px;
+  padding: 14px var(--spacing-4);
   font-size: var(--font-size-body-large);
   border-radius: var(--radius-lg);
 }
@@ -90,6 +98,10 @@
   opacity: 0.65;
 }
 
+/* ================================
+   ERROR STATES
+================================ */
+
 .ui-input[aria-invalid="true"],
 .ui-input--error {
   border-color: var(--color-danger);
@@ -119,6 +131,10 @@
     transition: none;
   }
 }
+
+/* ================================
+   FORM INPUT CONTAINER
+================================ */
 
 .input-form {
   width: 100%;
