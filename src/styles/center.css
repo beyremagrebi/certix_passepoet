@@ -1,0 +1,26 @@
+
+.ui-center {
+  display: flex;
+  gap: var(--center-gap, 0);
+}
+
+.ui-center--horizontal {
+  justify-content: center;
+}
+
+.ui-center--vertical {
+  align-items: center;
+}
+
+.ui-center--both {
+  justify-content: center;
+  align-items: center;
+}
+
+.ui-center--full-height {
+  min-height: 100vh;
+}
+
+.ui-center--inline {
+  display: inline-flex;
+}

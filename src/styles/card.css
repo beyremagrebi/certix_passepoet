@@ -38,6 +38,32 @@
   width: 100%;
 }
 
+
+.card-size-small {
+  width: var(--card-width-small);
+  max-width: 100%;
+}
+
+.card-size-medium {
+  width: var(--card-width-medium);
+  max-width: 100%;
+}
+
+.card-size-large {
+  width: var(--card-width-large);
+  max-width: 100%;
+}
+
+.card-size-extra-large {
+  width: var(--card-width-extra-large);
+  max-width: 100%;
+}
+
+.card-size-full {
+  width: var(--card-width-full);
+}
+
+
 /* Dark theme */
 [data-theme="dark"] .card-elevated {
   box-shadow: 0 4px 16px rgb(0 0 0 / 20%);

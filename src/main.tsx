@@ -2,14 +2,21 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles/index.css";
-import App from "./App.tsx";
+
 import { ThemeProvider } from "./components/providers/ThemeProvider.tsx";
+import { BrowserRouter } from "react-router-dom";
+
+import Certix from "./Certix.tsx";
 
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
+    <BrowserRouter>
     <ThemeProvider >
-      <App />
+     
+     <Certix></Certix>
+    
     </ThemeProvider>
+     </BrowserRouter>
   </StrictMode>
 );

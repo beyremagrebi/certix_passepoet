@@ -23,6 +23,7 @@ import { Select } from "./components/ui/global/Select";
 import { Modal } from "./components/ui/global/Modal";
 import { Tabs, type TabItem, type TabSize } from "./components/ui/global/Tab";
 import UsersTable from "./pages/UsersTable";
+import { BackButton } from "./components/ui/global/BackButton";
 
 function AppContent() {
   const [email, setEmail] = useState("");
@@ -755,6 +756,7 @@ function AppContent() {
 </Card>
 
 <Card>
+  <BackButton fallbackTo="/dashboard" />
   <UsersTable></UsersTable>
 </Card>
 

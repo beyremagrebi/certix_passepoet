@@ -1,17 +1,21 @@
+
 import type { HTMLAttributes } from "react";
 
-
 export type CardVariant = "default" | "outlined" | "elevated";
+export type CardPadding = "small" | "medium" | "large";
+export type CardSize = "small" | "medium" | "large" | "auto";
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   variant?: CardVariant;
-  padding?: "small" | "medium" | "large";
+  padding?: CardPadding;
+  size?: CardSize;
   fullWidth?: boolean;
 }
 
 export function Card({
   variant = "default",
   padding = "medium",
+  size = "auto",
   fullWidth = false,
   className = "",
   children,
@@ -21,6 +25,7 @@ export function Card({
     "card",
     `card-${variant}`,
     `card-padding-${padding}`,
+    `card-size-${size}`,
     fullWidth ? "card-full-width" : "",
     className,
   ]
