@@ -29,5 +29,8 @@
 @import "./login.css";
 @import "./register.css";
 @import "./forgot-password.css";
+@import "./header.css";
+@import "./dashboard-layout.css";
+@import "./user-menu.css";
 
 

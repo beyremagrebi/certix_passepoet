@@ -202,7 +202,7 @@ export default function RegisterForm() {
 
                         </div>
 
-                        <div className="register-footer">
+                        <div className="login-register">
                             <Body size="small">
                                 Already have an account?{" "}
                                 <Link to="/login">

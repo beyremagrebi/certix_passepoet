@@ -91,7 +91,7 @@ export default function ForgotPasswordForm() {
               </Button>
             </div>
 
-            <div className="forgot-password-footer">
+            <div  className="login-register">
               <Body size="small">
                 Remembered your password? <Link to="/login">Sign in</Link>
               </Body>

@@ -1,0 +1,203 @@
+/* ========================================
+   USER MENU
+======================================== */
+
+.user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* ========================================
+   PROFILE TRIGGER
+======================================== */
+
+.user-menu__trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+
+  min-width: 0;
+  padding: var(--spacing-2);
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-lg);
+  background: transparent;
+
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+
+  transition:
+    background-color var(--duration-fast, 150ms) ease,
+    border-color var(--duration-fast, 150ms) ease;
+}
+
+.user-menu__trigger:hover,
+.user-menu__trigger.is-open {
+  background-color: var(--color-surface-secondary);
+  border-color: var(--color-border);
+}
+
+.user-menu__trigger:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   PROFILE INFORMATION
+======================================== */
+
+.user-menu__identity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 0;
+}
+
+.user-menu__identity > * {
+  white-space: nowrap;
+}
+
+.user-menu__role {
+  color: var(--color-text-muted);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-small);
+  line-height: 1.4;
+}
+
+/* ========================================
+   CHEVRON
+======================================== */
+
+.user-menu__chevron {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+
+  transition:
+    transform var(--duration-fast, 150ms) ease,
+    color var(--duration-fast, 150ms) ease;
+}
+
+.user-menu__trigger.is-open .user-menu__chevron {
+  color: var(--color-text);
+  transform: rotate(180deg);
+}
+
+/* ========================================
+   DROPDOWN
+======================================== */
+
+.user-menu__dropdown {
+  position: absolute;
+  top: calc(100% + var(--spacing-2));
+  right: 0;
+  z-index: 100;
+
+  width: 13rem;
+  padding: var(--spacing-2);
+
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-lg);
+
+  animation: user-menu-enter 150ms ease-out;
+}
+
+.user-menu__dropdown-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+
+  padding: var(--spacing-3);
+}
+
+.user-menu__dropdown-name {
+  color: var(--color-text);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-semibold);
+}
+
+.user-menu__dropdown-role {
+  color: var(--color-text-muted);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-small);
+}
+
+/* ========================================
+   DIVIDER
+======================================== */
+
+.user-menu__divider {
+  height: 1px;
+  margin-block: var(--spacing-1);
+  background-color: var(--color-border);
+}
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+.user-menu__logout {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+
+  width: 100%;
+  padding: var(--spacing-3);
+
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+
+  color: var(--color-danger);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-small);
+  font-weight: var(--font-weight-medium);
+
+  text-align: left;
+  cursor: pointer;
+
+  transition: background-color var(--duration-fast, 150ms) ease;
+}
+
+.user-menu__logout:hover {
+  background-color: var(--color-surface-secondary);
+}
+
+.user-menu__logout:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+/* ========================================
+   ANIMATION
+======================================== */
+
+@keyframes user-menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .user-menu__trigger,
+  .user-menu__chevron,
+  .user-menu__logout {
+    transition: none;
+  }
+
+  .user-menu__dropdown {
+    animation: none;
+  }
+}

@@ -1,0 +1,184 @@
+
+/* ========================================
+   Dashboard Header
+======================================== */
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 4rem;
+  min-height: 4rem;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Header sections */
+
+.dashboard-header-left,
+.dashboard-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-header-left {
+  min-width: 0;
+}
+
+.dashboard-header-left h1 {
+  margin: 0;
+  font-size: var(--font-size-heading-small, 1.125rem);
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.dashboard-header-right {
+  gap: var(--spacing-5, 1.25rem);
+}
+
+/* Remove default margins */
+
+.dashboard-header,
+.dashboard-header * {
+  margin: 0;
+}
+
+/* ========================================
+   Notification Button
+======================================== */
+
+.dashboard-notification-button {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md, 0.5rem);
+
+  cursor: pointer;
+
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.dashboard-notification-button:hover {
+  color: var(--color-text);
+  background: var(--color-background);
+  border-color: var(--color-border);
+}
+
+.dashboard-notification-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.dashboard-notification-button svg {
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  stroke-width: 1.8;
+}
+
+/* Notification indicator */
+
+.notification-dot {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+
+  width: 0.45rem;
+  height: 0.45rem;
+
+  background: var(--color-danger);
+  border: 2px solid var(--color-surface);
+  border-radius: 50%;
+  box-sizing: content-box;
+}
+
+/* ========================================
+   Tablet
+======================================== */
+
+@media (max-width: 1024px) {
+  .dashboard-header-right {
+    gap: var(--spacing-3, 0.75rem);
+  }
+}
+
+/* ========================================
+   Mobile
+======================================== */
+
+@media (max-width: 768px) {
+  .dashboard-header,
+  .dashboard-content > .dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: none;
+    height: 3.5rem;
+    min-height: 3.5rem;
+
+    margin: 0;
+    padding: 0;
+
+    border-radius: 0;
+    box-sizing: border-box;
+  }
+
+  .dashboard-header-right {
+    gap: var(--spacing-2, 0.5rem);
+  }
+
+  .dashboard-notification-button {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}
+
+/* ========================================
+   Small Mobile
+======================================== */
+
+@media (max-width: 480px) {
+  .dashboard-header,
+  .dashboard-content > .dashboard-header {
+    height: 3.25rem;
+    min-height: 3.25rem;
+  }
+
+  .dashboard-header-right {
+    gap: 0.25rem;
+  }
+}
+
+/* ========================================
+   Reduced Motion
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-notification-button {
+    transition: none;
+  }
+}

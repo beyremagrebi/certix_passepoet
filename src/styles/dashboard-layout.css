@@ -1,0 +1,181 @@
+
+/* ========================================
+   DASHBOARD LAYOUT
+======================================== */
+
+.dashboard-layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: hidden;
+    background: var(--color-background, #f8fafc);
+}
+
+/* ========================================
+   DASHBOARD CONTENT
+======================================== */
+
+.dashboard-content {
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+
+    width: 0;
+    min-width: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    overflow: hidden;
+}
+
+/* ========================================
+   DASHBOARD HEADER
+======================================== */
+
+.dashboard-header {
+    display: flex;
+    flex: 0 0 4rem;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 4rem;
+    min-height: 4rem;
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    background: var(--color-surface, #ffffff);
+    border-bottom: 1px solid var(--color-border, #e5e7eb);
+}
+
+.dashboard-header,
+.dashboard-header * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.dashboard-header-left,
+.dashboard-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-header-left {
+    min-width: 0;
+}
+
+.dashboard-header-left h1 {
+    color: var(--color-text);
+    font-size: var(--font-size-heading-small, 1.125rem);
+    font-weight: var(--font-weight-semibold, 600);
+    letter-spacing: -0.02em;
+}
+
+.dashboard-header-right {
+    gap: var(--spacing-5, 1.25rem);
+}
+
+/* ========================================
+   NOTIFICATION BUTTON
+======================================== */
+
+.dashboard-notification-button {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+
+    border: none;
+    border-radius: var(--radius-md, 0.5rem);
+
+    background: transparent;
+    color: var(--color-text-muted);
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--duration-fast, 150ms) ease,
+        color var(--duration-fast, 150ms) ease;
+}
+
+.dashboard-notification-button:hover {
+    background: var(--color-background, #f8fafc);
+    color: var(--color-text);
+}
+
+.dashboard-notification-button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+
+    width: 0.45rem;
+    height: 0.45rem;
+
+    border: 2px solid var(--color-surface, #ffffff);
+    border-radius: 50%;
+
+    background: #dc2626;
+}
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+.dashboard-main {
+    flex: 1 1 auto;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    padding: 1rem;
+    box-sizing: border-box;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* ========================================
+   RESPONSIVE LAYOUT
+======================================== */
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-basis: 3.5rem;
+        height: 3.5rem;
+        min-height: 3.5rem;
+    }
+
+    .dashboard-main {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dashboard-header {
+        flex-basis: 3.25rem;
+        height: 3.25rem;
+        min-height: 3.25rem;
+    }
+
+    .dashboard-header-right {
+        gap: var(--spacing-2, 0.5rem);
+    }
+
+    .dashboard-main {
+        padding: 0.5rem;
+    }
+}
