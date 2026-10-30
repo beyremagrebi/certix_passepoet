@@ -5,12 +5,14 @@ import Login from "./pages/auth/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Register from "./pages/auth/Register";
 import ForgotPassword from "./pages/auth/ForgotPassword";
+import App from "./App";
 
 
 function Certix() {
     return (
         <ToastProvider>
             <Routes>
+                <Route path="/app" element={<App />} />
                 <Route path="/" element={<Login />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register/>} />
