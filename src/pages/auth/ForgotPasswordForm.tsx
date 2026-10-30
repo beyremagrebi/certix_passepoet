@@ -50,7 +50,7 @@ export default function ForgotPasswordForm() {
               </Body>
             </div>
 
-            <div className="stack forgot-password-fields">
+            <div className="forget-password-form stack forgot-password-fields">
               <div className="stack">
                 <Label htmlFor="forgot-password-email" required>Email address</Label>
                 <Input
