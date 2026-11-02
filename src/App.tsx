@@ -24,6 +24,7 @@ import { Modal } from "./components/ui/global/Modal";
 import { Tabs, type TabItem, type TabSize } from "./components/ui/global/Tab";
 import UsersTable from "./pages/UsersTable";
 import { BackButton } from "./components/ui/global/BackButton";
+import { TextArea } from "./components/ui/global/TextArea";
 
 function AppContent() {
   const [email, setEmail] = useState("");
@@ -320,6 +321,24 @@ function AppContent() {
                 error="This field is required"
               />
               <Input placeholder="Disabled input" disabled />
+
+              
+<TextArea
+  id="description"
+  name="description"
+  label="Description"
+  placeholder="Write a short description..."
+  rows={4}
+  size="medium"
+/>
+
+<TextArea
+  id="bio"
+  placeholder="Tell us about yourself..."
+  size="large"
+  error="This field is required."
+/>
+
             </div>
           </div>
         </Card>

@@ -1,0 +1,101 @@
+
+.ui-textarea-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1, 4px);
+  min-width: 0;
+}
+
+.ui-textarea {
+  display: block;
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  font-family: var(--font-family-base, inherit);
+  font-size: var(--font-size-body, 14px);
+  font-weight: var(--font-weight-regular, 400);
+  line-height: 1.5;
+  color: var(--color-text, #172033);
+  background: var(--color-surface, #ffffff);
+  border: var(--border-width-thin, 1px) solid
+    var(--color-border, #d1d5db);
+  border-radius: var(--radius-md, 8px);
+  outline: none;
+  resize: vertical;
+  transition:
+    border-color var(--duration-fast, 150ms) ease,
+    box-shadow var(--duration-fast, 150ms) ease,
+    background-color var(--duration-fast, 150ms) ease;
+}
+
+.ui-textarea::placeholder {
+  color: var(--color-text-muted, #94a3b8);
+  opacity: 1;
+}
+
+.ui-textarea:hover:not(:disabled):not(:focus) {
+  border-color: var(--color-border-strong, #9ca3af);
+}
+
+.ui-textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--color-primary) 15%, transparent);
+}
+
+.ui-textarea:disabled {
+  background: var(--color-background, #f8fafc);
+  color: var(--color-text-muted, #94a3b8);
+  cursor: not-allowed;
+  resize: none;
+  opacity: 0.7;
+}
+
+.ui-textarea--full-width {
+  width: 100%;
+}
+
+/* Sizes */
+.ui-textarea--small {
+  min-height: 80px;
+  padding: var(--spacing-2, 8px) var(--spacing-3, 12px);
+  font-size: var(--font-size-body-small, 13px);
+}
+
+.ui-textarea--medium {
+  min-height: 110px;
+  padding: var(--spacing-3, 12px);
+  font-size: var(--font-size-body, 14px);
+}
+
+.ui-textarea--large {
+  min-height: 140px;
+  padding: var(--spacing-4, 16px);
+  font-size: var(--font-size-body, 14px);
+}
+
+/* Error state */
+.ui-textarea--error {
+  border-color: var(--color-danger, #dc2626);
+}
+
+.ui-textarea--error:focus {
+  border-color: var(--color-danger, #dc2626);
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--color-danger, #dc2626) 15%, transparent);
+}
+
+.ui-textarea-error {
+  color: var(--color-danger, #dc2626);
+  font-size: var(--font-size-body-small, 13px);
+  line-height: 1.4;
+}
+
+/* Accessibility */
+.ui-textarea:focus-visible {
+  outline: none;
+}
+
+.ui-textarea:focus-visible:not(.ui-textarea--error) {
+  border-color: var(--color-primary);
+}
