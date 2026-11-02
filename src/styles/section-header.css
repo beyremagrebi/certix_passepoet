@@ -1,0 +1,19 @@
+
+/* ========================================
+   SECTION HEADER
+======================================== */
+
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 0;
+}
+
+.section-header__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}

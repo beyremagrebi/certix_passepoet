@@ -43,22 +43,22 @@ function AppContent() {
   const [size, setSize] = useState<TabSize>("medium");
 
   const tabs: TabItem[] = [
-  {
-    value: "overview",
-    label: "Overview",
-    content: <div>Overview content goes here.</div>,
-  },
-  {
-    value: "settings",
-    label: "Settings",
-    content: <div>Settings content goes here.</div>,
-  },
-  {
-    value: "activity",
-    label: "Activity",
-    content: <div>Activity content goes here.</div>,
-  },
-];
+    {
+      value: "overview",
+      label: "Overview",
+      content: <div>Overview content goes here.</div>,
+    },
+    {
+      value: "settings",
+      label: "Settings",
+      content: <div>Settings content goes here.</div>,
+    },
+    {
+      value: "activity",
+      label: "Activity",
+      content: <div>Activity content goes here.</div>,
+    },
+  ];
 
 
   const handleSave = () => {
@@ -322,22 +322,21 @@ function AppContent() {
               />
               <Input placeholder="Disabled input" disabled />
 
-              
-<TextArea
-  id="description"
-  name="description"
-  label="Description"
-  placeholder="Write a short description..."
-  rows={4}
-  size="medium"
-/>
 
-<TextArea
-  id="bio"
-  placeholder="Tell us about yourself..."
-  size="large"
-  error="This field is required."
-/>
+              <TextArea
+                id="description"
+                name="description"
+                placeholder="Write a short description..."
+                rows={4}
+                size="medium"
+              />
+
+              <TextArea
+                id="bio"
+                placeholder="Tell us about yourself..."
+                size="large"
+                error="This field is required."
+              />
 
             </div>
           </div>
@@ -733,92 +732,92 @@ function AppContent() {
           </div>
         </Card>
 
-{/* Right-side Modal / Drawer */}
-<Card>
-  <div className="stack">
-    <Title size="large">Modal / Drawer</Title>
+        {/* Right-side Modal / Drawer */}
+        <Card>
+          <div className="stack">
+            <Title size="large">Modal / Drawer</Title>
 
-    <Body size="medium">
-      A reusable dialog that slides in from the right side.
-    </Body>
+            <Body size="medium">
+              A reusable dialog that slides in from the right side.
+            </Body>
 
-    <div className="cluster">
-      <Button onClick={() => setIsModalOpen(true)}>
-        Open Right Drawer
-      </Button>
-    </div>
-  </div>
-</Card>
+            <div className="cluster">
+              <Button onClick={() => setIsModalOpen(true)}>
+                Open Right Drawer
+              </Button>
+            </div>
+          </div>
+        </Card>
 
-<Card>
-      <div className="stack">
+        <Card>
+          <div className="stack">
 
-      <Select
-        label="Tab size"
-        id="tabs-size"
-        value={size}
-        onChange={(event) => setSize(event.target.value as TabSize)}
-      >
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-      </Select>
+            <Select
+              label="Tab size"
+              id="tabs-size"
+              value={size}
+              onChange={(event) => setSize(event.target.value as TabSize)}
+            >
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+            </Select>
 
-      <Tabs
-        tabs={tabs}
-        size={size}
-        selectedValue={activeTab}
-        onChange={setActiveTab}
-        ariaLabel="Example navigation"
-      />
-    </div>
-</Card>
+            <Tabs
+              tabs={tabs}
+              size={size}
+              selectedValue={activeTab}
+              onChange={setActiveTab}
+              ariaLabel="Example navigation"
+            />
+          </div>
+        </Card>
 
-<Card>
-  <BackButton fallbackTo="/dashboard" />
-  <UsersTable></UsersTable>
-</Card>
+        <Card>
+          <BackButton fallbackTo="/dashboard" />
+          <UsersTable></UsersTable>
+        </Card>
 
-<Modal
-  open={isModalOpen}
-  onClose={() => setIsModalOpen(false)}
-  title="Account Settings"
-  width="420px"
->
-  <div className="stack stack-sm">
-    <Body size="medium">
-      Manage your account preferences here.
-    </Body>
-    <Label htmlFor="full-name" size="medium" required>
-      name
-    </Label>
-    <Input
-      id="full-name"
-      placeholder="Enter your name"
-    />
-      <Label htmlFor="email" size="medium" required>
-      Email
-    </Label>
-    <Input
-      id="email"
-      type="email"
-      placeholder="you@example.com"
-    />
+        <Modal
+          open={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          title="Account Settings"
+          width="420px"
+        >
+          <div className="stack stack-sm">
+            <Body size="medium">
+              Manage your account preferences here.
+            </Body>
+            <Label htmlFor="full-name" size="medium" required>
+              name
+            </Label>
+            <Input
+              id="full-name"
+              placeholder="Enter your name"
+            />
+            <Label htmlFor="email" size="medium" required>
+              Email
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="you@example.com"
+            />
 
-    <div className="cluster">
-      <Button onClick={() => setIsModalOpen(false)}>
-        Save Changes
-      </Button>
+            <div className="cluster">
+              <Button onClick={() => setIsModalOpen(false)}>
+                Save Changes
+              </Button>
 
-      <Button
-        variant="outline"
-        onClick={() => setIsModalOpen(false)}
-      >
-        Cancel
-      </Button>
-    </div>
-  </div>
-</Modal>
+              <Button
+                variant="outline"
+                onClick={() => setIsModalOpen(false)}
+              >
+                Cancel
+              </Button>
+            </div>
+          </div>
+        </Modal>
 
 
       </div>

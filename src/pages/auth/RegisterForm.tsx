@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../../components/ui/global/Button";
 import { Center } from "../../components/ui/global/Center";
 import { Input } from "../../components/ui/global/Input";
+import { PasswordField } from "../../components/ui/global/PasswordField";
 
 import { Body } from "../../components/ui/typography/Body";
 import { Label } from "../../components/ui/typography/Label";
@@ -70,9 +71,8 @@ export default function RegisterForm() {
                         </div>
 
                         <div className="stack register-fields register-form">
-                            <div className="register-name-row ">
-                                <div className="stack flex-1 ">
-                                 
+                            <div className="register-name-row">
+                                <div className="stack flex-1">
                                     <Label htmlFor="firstName" required>
                                         First name
                                     </Label>
@@ -133,50 +133,23 @@ export default function RegisterForm() {
                                 />
                             </div>
 
-                            <div className="stack">
-                                <Label htmlFor="registerPassword" required>
-                                    Password
-                                </Label>
-
-                                <Input
-                                    id="registerPassword"
-                                    type="password"
-                                    name="password"
-                                    size="medium"
-                                    placeholder="Create a password"
-                                    autoComplete="new-password"
-                                    value={password}
-                                    onChange={(event) =>
-                                        setPassword(event.target.value)
-                                    }
-                                    required
-                                />
-
-                                <Body size="small">
-                                    Use at least 8 characters.
-                                </Body>
-                            </div>
+                            <PasswordField
+                                id="registerPassword"
+                                label="Password"
+                                placeholder="Create a password"
+                                value={password}
+                                onChange={setPassword}
+                                autoComplete="new-password"
+                            />
 
                             <div className="stack">
-                                <Label
-                                    htmlFor="confirmPassword"
-                                    required
-                                >
-                                    Confirm password
-                                </Label>
-
-                                <Input
+                                <PasswordField
                                     id="confirmPassword"
-                                    type="password"
-                                    name="confirmPassword"
-                                    size="medium"
+                                    label="Confirm password"
                                     placeholder="Confirm your password"
-                                    autoComplete="new-password"
                                     value={confirmPassword}
-                                    onChange={(event) =>
-                                        setConfirmPassword(event.target.value)
-                                    }
-                                    required
+                                    onChange={setConfirmPassword}
+                                    autoComplete="new-password"
                                 />
                             </div>
 
@@ -191,15 +164,13 @@ export default function RegisterForm() {
                                 </Body>
                             )}
 
-
-    <Button
-        type="submit"
-        variant="primary"
-        size="medium"
-    >
-        Create account
-    </Button>
-
+                            <Button
+                                type="submit"
+                                variant="primary"
+                                size="medium"
+                            >
+                                Create account
+                            </Button>
                         </div>
 
                         <div className="login-register">

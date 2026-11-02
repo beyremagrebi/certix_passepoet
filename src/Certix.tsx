@@ -6,6 +6,7 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Register from "./pages/auth/Register";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import App from "./App";
+import { SettingsPage } from "./pages/dashboard/settings/SettingsPage";
 
 
 function Certix() {
@@ -51,7 +52,7 @@ function Certix() {
                     />
                     <Route
                         path="settings"
-                        element={<Page title="Settings" />}
+                        element={<SettingsPage></SettingsPage>}
                     />
                     <Route
                         path="help"

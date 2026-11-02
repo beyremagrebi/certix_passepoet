@@ -53,8 +53,15 @@
    Match input.css padding and typography
 ======================================== */
 
+
+/* ========================================
+   SIZES
+   Match input.css exactly
+======================================== */
+
 .ui-select--small {
-  --select-padding-y: var(--spacing-2);
+  --select-min-height: 36px;
+  --select-padding-y: 6px;
   --select-padding-left: var(--spacing-3);
   --select-padding-right: var(--spacing-10);
   --select-font-size: var(--font-size-body-small);
@@ -63,7 +70,8 @@
 }
 
 .ui-select--medium {
-  --select-padding-y: var(--spacing-3);
+  --select-min-height: 44px;
+  --select-padding-y: 10px;
   --select-padding-left: var(--spacing-4);
   --select-padding-right: var(--spacing-12);
   --select-font-size: var(--font-size-body-medium);
@@ -72,13 +80,15 @@
 }
 
 .ui-select--large {
-  --select-padding-y: var(--spacing-4);
+  --select-min-height: 52px;
+  --select-padding-y: 14px;
   --select-padding-left: var(--spacing-4);
   --select-padding-right: var(--spacing-12);
   --select-font-size: var(--font-size-body-large);
   --select-chevron-size: var(--spacing-5);
   --select-chevron-offset: var(--spacing-4);
 }
+
 
 /* ========================================
    SELECT CONTROL
@@ -92,7 +102,7 @@
   min-width: 0;
   height: auto;
   margin: 0;
-
+min-height: var(--select-min-height);
   padding:
     var(--select-padding-y)
     var(--select-padding-right)

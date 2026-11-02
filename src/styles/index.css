@@ -33,5 +33,9 @@
 @import "./dashboard-layout.css";
 @import "./user-menu.css";
 @import "./textarea.css";
+@import "./settings-page.css";
+@import "./section-header.css";
+@import "./theme-setting.css";
+@import "./security-setting.css";
 
 

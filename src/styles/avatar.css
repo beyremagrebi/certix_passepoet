@@ -1,3 +1,4 @@
+
 /* ========================================
    AVATAR
 ======================================== */
@@ -8,6 +9,7 @@
   justify-content: center;
   flex: 0 0 auto;
   overflow: hidden;
+  box-sizing: border-box;
 
   background: var(--color-primary-subtle);
   color: var(--color-primary);
@@ -37,26 +39,26 @@
 ======================================== */
 
 .ui-avatar--small {
-  width: var(--spacing-8);       /* 16px */
-  height: var(--spacing-8);
+  width: var(--spacing-12); /* 24px */
+  height: var(--spacing-12);
   font-size: var(--font-size-body-small);
 }
 
 .ui-avatar--medium {
-  width: var(--spacing-10);      /* 20px */
-  height: var(--spacing-10);
+  width: var(--spacing-16); /* 32px */
+  height: var(--spacing-16);
   font-size: var(--font-size-body-medium);
 }
 
 .ui-avatar--large {
-  width: var(--spacing-12);      /* 24px */
-  height: var(--spacing-12);
+  width: var(--spacing-24); /* 48px */
+  height: var(--spacing-24);
   font-size: var(--font-size-body-large);
 }
 
 .ui-avatar--extra-large {
-  width: var(--spacing-16);      /* 32px */
-  height: var(--spacing-16);
+  width: 5rem; /* 80px */
+  height: 5rem;
   font-size: var(--font-size-title-medium);
 }
 

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 
+import { useEffect, useState } from "react";
 
 const palettes = [
   { name: "Indigo", value: "indigo", color: "#5558B8" },
@@ -20,7 +20,7 @@ export function ColorPaletteSelector() {
         return saved as Palette;
       }
     } catch {
-      // Use the default palette if storage is unavailable.
+      // Use default palette.
     }
 
     return "indigo";
@@ -32,43 +32,70 @@ export function ColorPaletteSelector() {
     try {
       localStorage.setItem("color-palette", selected);
     } catch {
-      // The selection still works for this session.
+      // Selection remains active for this session.
     }
   }, [selected]);
 
+  const currentPalette = palettes.find(
+    (palette) => palette.value === selected
+  );
+
   return (
     <div className="palette-selector">
-      <div className="palette-selector-header">
-        <h3 className="palette-selector-title">Color palette</h3>
-        <span className="palette-selector-current">
-          {palettes.find((palette) => palette.value === selected)?.name}
+      <div className="palette-selector__header">
+        <div>
+          <p className="palette-selector__title">Accent color</p>
+          <p className="palette-selector__description">
+            Choose your preferred interface color.
+          </p>
+        </div>
+
+        <span className="palette-selector__selected-name">
+          <span
+            className="palette-selector__selected-dot"
+            style={{ backgroundColor: currentPalette?.color }}
+          />
+          {currentPalette?.name}
         </span>
       </div>
 
-      <div className="palette-options">
-        {palettes.map((palette) => (
-          <button
-            key={palette.value}
-            type="button"
-            className={`palette-option ${
-              selected === palette.value ? "palette-option-selected" : ""
-            }`}
-            onClick={() => setSelected(palette.value)}
-            aria-label={`Select ${palette.name} palette`}
-            aria-pressed={selected === palette.value}
-          >
-            <span
-              className="palette-swatch"
-              style={{ backgroundColor: palette.color }}
-            />
-            <span className="palette-option-name">{palette.name}</span>
-            {selected === palette.value && (
-              <span className="palette-check" aria-hidden="true">
-                ✓
+      <div className="palette-options" role="group" aria-label="Accent color">
+        {palettes.map((palette) => {
+          const isSelected = selected === palette.value;
+
+          return (
+            <button
+              key={palette.value}
+              type="button"
+              className={`palette-option ${
+                isSelected ? "palette-option--selected" : ""
+              }`}
+              onClick={() => setSelected(palette.value)}
+              aria-label={`${palette.name} accent color`}
+              aria-pressed={isSelected}
+              title={palette.name}
+            >
+              <span
+                className="palette-option__swatch"
+                style={{ backgroundColor: palette.color }}
+              >
+                {isSelected && (
+                  <svg viewBox="0 0 16 16" aria-hidden="true">
+                    <path
+                      d="m3.5 8 3 3 6-6"
+                      fill="none"
+                      stroke="white"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                )}
               </span>
-            )}
-          </button>
-        ))}
+              <span className="palette-option__name">{palette.name}</span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );

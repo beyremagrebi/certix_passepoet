@@ -1,12 +1,14 @@
 import { useState, type FormEvent } from "react";
+import { Link } from "react-router-dom";
 
 import { Button } from "../../components/ui/global/Button";
 import { Checkbox } from "../../components/ui/global/Checkbox";
 import { Input } from "../../components/ui/global/Input";
+import { PasswordField } from "../../components/ui/global/PasswordField";
+
 import { Body } from "../../components/ui/typography/Body";
 import { Label } from "../../components/ui/typography/Label";
 import { Title } from "../../components/ui/typography/Title";
-import { Link } from "react-router-dom";
 
 export default function LoginForm() {
     const [email, setEmail] = useState("");
@@ -24,7 +26,7 @@ export default function LoginForm() {
         }
 
         // Connect your authentication API here.
-        console.log({ email, rememberMe });
+        console.log({ email: email.trim(), rememberMe });
     }
 
     return (
@@ -44,11 +46,12 @@ export default function LoginForm() {
 
                 <form className="login-form" onSubmit={handleSubmit}>
                     <div className="login-field">
-                        <Label size="medium" required>
+                        <Label htmlFor="loginEmail" size="medium" required>
                             Email address
                         </Label>
 
                         <Input
+                            id="loginEmail"
                             type="email"
                             name="email"
                             size="medium"
@@ -62,24 +65,14 @@ export default function LoginForm() {
                         />
                     </div>
 
-                    <div className="login-field">
-                        <Label size="medium" required>
-                            Password
-                        </Label>
-
-                        <Input
-                            type="password"
-                            name="password"
-                            size="medium"
-                            placeholder="Enter your password"
-                            autoComplete="current-password"
-                            value={password}
-                            onChange={(event) =>
-                                setPassword(event.target.value)
-                            }
-                            required
-                        />
-                    </div>
+                    <PasswordField
+                        id="loginPassword"
+                        label="Password"
+                        placeholder="Enter your password"
+                        value={password}
+                        onChange={setPassword}
+                        autoComplete="current-password"
+                    />
 
                     <div className="login-form-options">
                         <Checkbox
@@ -91,7 +84,9 @@ export default function LoginForm() {
                             }
                         />
 
-                        <Link to="/forgot-password">Forgot password?</Link>
+                        <Link to="/forgot-password">
+                            Forgot password?
+                        </Link>
                     </div>
 
                     {error && (
